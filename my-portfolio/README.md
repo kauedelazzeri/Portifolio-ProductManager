@@ -1,4 +1,6 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Kaue Delazzeri - Product Manager Portfolio
+
+A modern, responsive portfolio website showcasing my experience as a Product Manager in electric mobility, platform architecture, and digital payments.
 
 ## Getting Started
 
