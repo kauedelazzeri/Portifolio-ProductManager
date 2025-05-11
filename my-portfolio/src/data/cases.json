@@ -1,0 +1,9 @@
+[
+  {
+    "slug": "social-betting-platform",
+    "title": "Social Betting MVP",
+    "description": "Simulated product focused on engagement and retention in a no-login social betting context.",
+    "kpis": ["DAU", "retention rate", "average bets per user"],
+    "tags": ["Next.js", "Tailwind", "Product Decisions"]
+  }
+]
