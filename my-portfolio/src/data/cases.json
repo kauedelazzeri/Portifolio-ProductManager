@@ -1,9 +1,46 @@
-[
-  {
-    "slug": "social-betting-platform",
-    "title": "Social Betting MVP",
-    "description": "Simulated product focused on engagement and retention in a no-login social betting context.",
-    "kpis": ["DAU", "retention rate", "average bets per user"],
-    "tags": ["Next.js", "Tailwind", "Product Decisions"]
-  }
-]
+{
+  "cases": [
+    {
+      "slug": "social-betting-platform",
+      "title": "Social Betting MVP",
+      "summary": "Simulated product focused on engagement and retention in a no-login social betting context.",
+      "role": "Product Manager",
+      "duration": "6 months",
+      "context": "Led the development of a social betting MVP that aimed to increase user engagement through social features and gamification.",
+      "challenge": "Design a betting platform that would attract and retain users without requiring a login, while maintaining high engagement rates.",
+      "decisions": [
+        "Implemented a cookie-based anonymous user system",
+        "Created a social leaderboard with temporary nicknames",
+        "Designed a progressive revelation of features based on user engagement"
+      ],
+      "results": [
+        "Achieved 45% Day-1 retention rate",
+        "Average of 8 bets per user per session",
+        "85% of users engaged with social features"
+      ],
+      "stack": ["Next.js", "Tailwind CSS", "Product Strategy", "User Research", "A/B Testing"],
+      "image": "/images/projects/social-betting-preview.jpg"
+    },
+    {
+      "slug": "ev-charging-platform",
+      "title": "EV Charging Network Platform",
+      "summary": "Developed a comprehensive platform for managing and monitoring electric vehicle charging stations across multiple regions.",
+      "role": "Senior Product Manager",
+      "duration": "12 months",
+      "context": "Led the development of a unified platform to manage a network of EV charging stations, focusing on both B2B and B2C aspects.",
+      "challenge": "Create a scalable platform that could handle real-time monitoring of charging stations while providing a seamless experience for both station operators and end users.",
+      "decisions": [
+        "Implemented real-time monitoring system with webhook notifications",
+        "Designed a flexible pricing model for different user segments",
+        "Created a unified dashboard for station operators"
+      ],
+      "results": [
+        "Successfully integrated 500+ charging stations",
+        "Reduced maintenance response time by 60%",
+        "Increased station utilization by 35%"
+      ],
+      "stack": ["IoT", "Real-time Monitoring", "Payment Systems", "Data Analytics", "UX Research"],
+      "image": "/images/projects/ev-charging-preview.jpg"
+    }
+  ]
+}

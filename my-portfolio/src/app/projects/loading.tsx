@@ -1,19 +1,28 @@
-export default function ProjectsLoading() {
+export default function Loading() {
   return (
-    <div className="space-y-8 animate-pulse">
-      <div className="space-y-3">
-        <div className="h-8 w-32 bg-muted rounded"></div>
-        <div className="h-4 w-2/3 bg-muted rounded"></div>
+    <div className="container mx-auto px-4 py-16 max-w-7xl">
+      <div className="space-y-8 mb-16">
+        <div>
+          <div className="h-12 w-48 bg-muted animate-pulse rounded-lg mb-4" />
+          <div className="h-6 w-full max-w-2xl bg-muted animate-pulse rounded-lg" />
+        </div>
       </div>
 
-      <div className="grid gap-8 md:grid-cols-2">
-        {Array.from({ length: 4 }).map((_, i) => (
-          <div key={i} className="rounded-lg border p-6">
-            <div className="aspect-video w-full rounded-md bg-muted mb-4"></div>
-            <div className="space-y-3">
-              <div className="h-5 w-1/2 bg-muted rounded"></div>
-              <div className="h-4 w-full bg-muted rounded"></div>
-              <div className="h-4 w-2/3 bg-muted rounded"></div>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {Array.from({ length: 6 }).map((_, i) => (
+          <div key={i} className="rounded-xl border bg-card overflow-hidden">
+            <div className="aspect-[16/9] w-full bg-muted animate-pulse" />
+            <div className="p-6 space-y-4">
+              <div className="h-6 w-3/4 bg-muted animate-pulse rounded-lg" />
+              <div className="space-y-2">
+                <div className="h-4 w-full bg-muted animate-pulse rounded-lg" />
+                <div className="h-4 w-2/3 bg-muted animate-pulse rounded-lg" />
+              </div>
+              <div className="flex gap-2">
+                {Array.from({ length: 3 }).map((_, j) => (
+                  <div key={j} className="h-6 w-16 bg-muted animate-pulse rounded-full" />
+                ))}
+              </div>
             </div>
           </div>
         ))}

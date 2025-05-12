@@ -1,7 +1,5 @@
 import Link from "next/link";
-import { notFound } from "next/navigation";
-import { ChevronLeftIcon } from "@heroicons/react/24/outline";
-import { getCaseBySlug, getOtherCases } from "@/lib/cases";
+import { FadeIn } from "@/components/animations";
 
 interface ProjectPageProps {
   params: {
@@ -10,142 +8,45 @@ interface ProjectPageProps {
 }
 
 export default function ProjectPage({ params }: ProjectPageProps) {
-  const project = getCaseBySlug(params.slug);
-  
-  if (!project) {
-    notFound();
-  }
-
-  const otherProjects = getOtherCases(params.slug);
-
   return (
-    <div className="space-y-12">
-      {/* Back Button */}
+    <div className="space-y-8">
       <Link
         href="/projects"
         className="inline-flex items-center text-sm text-muted-foreground hover:text-foreground"
       >
-        <ChevronLeftIcon className="mr-1 h-4 w-4" />
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 20 20"
+          fill="currentColor"
+          className="mr-1 h-4 w-4"
+        >
+          <path
+            fillRule="evenodd"
+            d="M17 10a.75.75 0 01-.75.75H5.612l4.158 3.96a.75.75 0 11-1.04 1.08l-5.5-5.25a.75.75 0 010-1.08l5.5-5.25a.75.75 0 111.04 1.08L5.612 9.25H16.25A.75.75 0 0117 10z"
+            clipRule="evenodd"
+          />
+        </svg>
         Back to Projects
       </Link>
 
-      {/* Project Header */}
-      <div className="space-y-4">
-        <h1 className="text-4xl font-bold">{project.title}</h1>
-        <p className="text-lg text-muted-foreground">{project.summary}</p>
-        
-        <div className="flex flex-wrap gap-4 text-sm">
-          <div>
-            <span className="font-medium">Role:</span> {project.role}
-          </div>
-          <div>
-            <span className="font-medium">Duration:</span> {project.duration}
-          </div>
-        </div>
-      </div>
-
-      {/* Project Image */}
-      <div className="aspect-video w-full overflow-hidden rounded-lg bg-muted">
-        <div className="flex h-full items-center justify-center text-sm text-muted-foreground">
-          Project screenshot coming soon
-        </div>
-      </div>
-
-      {/* Project Content */}
-      <div className="grid gap-12 lg:grid-cols-3">
-        <div className="lg:col-span-2 space-y-8">
-          {/* Context */}
-          <section>
-            <h2 className="text-2xl font-semibold">Context</h2>
-            <p className="mt-2 text-muted-foreground">{project.context}</p>
-          </section>
-
-          {/* Challenge */}
-          <section>
-            <h2 className="text-2xl font-semibold">Challenge</h2>
-            <p className="mt-2 text-muted-foreground">{project.challenge}</p>
-          </section>
-
-          {/* Key Decisions */}
-          <section>
-            <h2 className="text-2xl font-semibold">Key Decisions</h2>
-            <ul className="mt-4 space-y-2">
-              {project.decisions.map((decision, index) => (
-                <li key={index} className="flex gap-2 text-muted-foreground">
-                  <span className="text-foreground">•</span>
-                  {decision}
-                </li>
-              ))}
-            </ul>
-          </section>
-
-          {/* Results */}
-          <section>
-            <h2 className="text-2xl font-semibold">Results</h2>
-            <ul className="mt-4 space-y-2">
-              {project.results.map((result, index) => (
-                <li key={index} className="flex gap-2 text-muted-foreground">
-                  <span className="text-foreground">•</span>
-                  {result}
-                </li>
-              ))}
-            </ul>
-          </section>
-        </div>
-
-        {/* Sidebar */}
-        <div className="space-y-8">
-          {/* Tech Stack */}
-          <section className="rounded-lg border p-6">
-            <h3 className="font-semibold">Tech Stack</h3>
-            <div className="mt-4 flex flex-wrap gap-2">
-              {project.stack.map((tech) => (
-                <span
-                  key={tech}
-                  className="rounded-full bg-secondary px-2.5 py-0.5 text-xs text-secondary-foreground"
-                >
-                  {tech}
-                </span>
-              ))}
-            </div>
-          </section>
-
-          {/* Contact CTA */}
-          <section className="rounded-lg border p-6">
-            <h3 className="font-semibold">Interested in working together?</h3>
-            <p className="mt-2 text-sm text-muted-foreground">
-              Let's discuss how I can help with your product challenges.
-            </p>
-            <Link
-              href="/contact"
-              className="mt-4 inline-flex w-full items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+      <FadeIn>
+        <div className="flex flex-col items-center justify-center space-y-4 py-16 text-center">
+          <div className="rounded-full bg-secondary p-3">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+              className="h-6 w-6"
             >
-              Get in Touch
-            </Link>
-          </section>
+              <path d="M10 1a6.5 6.5 0 00-4.987 10.674l-.007.032a6.5 6.5 0 109.987-8.196A6.5 6.5 0 0010 1zm0 13a.75.75 0 100-1.5.75.75 0 000 1.5zm.75-4.25a.75.75 0 00-1.5 0V12a.75.75 0 001.5 0V9.75z" />
+            </svg>
+          </div>
+          <h1 className="text-2xl font-bold">Project Details Coming Soon</h1>
+          <p className="max-w-[500px] text-muted-foreground">
+            This project case study is currently being prepared. Check back soon to learn more about the challenges, decisions, and outcomes of this project.
+          </p>
         </div>
-      </div>
-
-      {/* Other Projects */}
-      <section className="pt-8">
-        <h2 className="text-2xl font-semibold">Other Projects</h2>
-        <div className="mt-6 grid gap-6 md:grid-cols-2">
-          {otherProjects.map((otherProject) => (
-            <Link
-              key={otherProject.slug}
-              href={`/projects/${otherProject.slug}`}
-              className="group rounded-lg border p-6 transition-colors hover:border-foreground"
-            >
-              <h3 className="font-semibold group-hover:text-primary">
-                {otherProject.title}
-              </h3>
-              <p className="mt-2 text-sm text-muted-foreground">
-                {otherProject.summary}
-              </p>
-            </Link>
-          ))}
-        </div>
-      </section>
+      </FadeIn>
     </div>
   );
 }
