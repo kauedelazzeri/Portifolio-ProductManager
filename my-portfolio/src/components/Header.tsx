@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { cn } from "@/lib/utils";
+import { ThemeSwitch } from "./theme-switch";
 
 const navigation = [
   { name: "Home", href: "/" },
@@ -51,27 +52,21 @@ export default function Header() {
                 href={item.href}
                 onClick={(e) => handleClick(e, item.href)}
                 className={cn(
-                  "relative text-sm transition-colors hover:text-primary",
-                  pathname === item.href || (pathname === "/" && item.href === "/")
-                    ? "text-foreground font-medium after:absolute after:bottom-[-1.5rem] after:left-0 after:h-[2px] after:w-full after:bg-primary"
-                    : "text-foreground/60"
+                  "text-sm font-medium transition-colors hover:text-primary",
+                  (pathname === item.href ||
+                    (pathname === "/" && item.href.startsWith("/#"))) &&
+                    "text-primary"
                 )}
               >
                 {item.name}
               </Link>
             ))}
           </div>
-          <div className="flex items-center gap-2">
-            <Link
-              href="/#contact"
-              onClick={(e) => handleClick(e, "/#contact")}
-              className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-all hover:bg-primary/90 hover:scale-105 hover:shadow-lg"
-            >
-              Let&apos;s Talk
-            </Link>
+          <div className="flex items-center space-x-4">
+            <ThemeSwitch />
           </div>
         </nav>
       </div>
     </header>
-  );
+  )
 }

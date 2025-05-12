@@ -1,30 +1,32 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { ReactNode } from "react";
+import { motion, type HTMLMotionProps } from "framer-motion";
+import { forwardRef } from "react";
+import { cn } from "@/lib/utils";
 
-interface FadeInProps {
-  children: ReactNode;
-  className?: string;
-  delay?: number;
-}
+type AnimationProps = HTMLMotionProps<"div">;
 
-export function FadeIn({ children, className = "", delay = 0 }: FadeInProps) {
-  return (
+export const FadeIn = forwardRef<HTMLDivElement, AnimationProps>(
+  ({ children, className, ...props }, ref) => (
     <motion.div
+      ref={ref}
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, delay }}
-      className={className}
+      transition={{ duration: 0.5 }}
+      {...props}
+      style={{ ...props.style }}
+      className={cn(className)}
     >
       {children}
     </motion.div>
-  );
-}
+  )
+);
+FadeIn.displayName = "FadeIn";
 
-export function FadeInStagger({ children, className = "" }: Omit<FadeInProps, "delay">) {
-  return (
+export const FadeInStagger = forwardRef<HTMLDivElement, AnimationProps>(
+  ({ children, className, ...props }, ref) => (
     <motion.div
+      ref={ref}
       initial="hidden"
       animate="visible"
       viewport={{ once: true }}
@@ -37,9 +39,12 @@ export function FadeInStagger({ children, className = "" }: Omit<FadeInProps, "d
           }
         }
       }}
-      className={className}
+      {...props}
+      style={{ ...props.style }}
+      className={cn(className)}
     >
       {children}
     </motion.div>
-  );
-}
+  )
+);
+FadeInStagger.displayName = "FadeInStagger";
