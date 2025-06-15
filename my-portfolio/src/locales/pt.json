@@ -1,0 +1,103 @@
+{
+  "header": {
+    "home": "Início",
+    "projects": "Projetos",
+    "skills": "Habilidades",
+    "articles": "Artigos",
+    "contact": "Contato"
+  },
+  "home": {
+    "heroTitle": "Gerente de Produto com experiência em mobilidade elétrica e plataformas digitais",
+    "heroSubtitle": "Construindo plataformas orientadas por dados para impacto em escala.",
+    "heroBullets": [
+      "Mais de 4 anos de experiência como Gerente de Produto",
+      "Especializado em mobilidade elétrica e plataformas digitais",
+      "Foco em crescimento, decisões orientadas por dados e planejamento estratégico"
+    ],
+    "viewProjects": "Ver Projetos",
+    "contactMe": "Entrar em Contato",
+    "featured": "Projetos em Destaque",
+    "viewAll": "Ver todos os projetos →",
+    "project1Title": "Plataforma Social de Apostas",
+    "project1Desc": "Uma plataforma de apostas sociais focada em engajamento e retenção",
+    "project2Title": "Moments App",
+    "project2Desc": "Plataforma social para descoberta de eventos",
+    "technicalExpertise": "Expertise Técnica",
+    "hardSkills": "🔧 Hard Skills",
+    "dataAnalytics": "📊 Dados e Analytics",
+    "dataAnalyticsList": [
+      "Visualização de Dados (AWS QuickSight)",
+      "Testes A/B e Experimentação",
+      "Otimização de SQL e Performance de Consultas",
+      "Estratégia de Eventos (PostHog, Firebase)"
+    ],
+    "infrastructure": "☁️ Infraestrutura",
+    "infrastructureList": [
+      "Pipelines CI/CD (GitHub Actions, Vercel)",
+      "Gestão de APIs (REST, WebSockets)",
+      "Monitoramento e Observabilidade (CloudWatch)"
+    ],
+    "aiAutomation": "🧠 IA e Automação",
+    "aiAutomationList": [
+      "Prompt Engineering",
+      "Machine Learning Aplicado (Scikit-learn, TensorFlow, SVM)",
+      "Automação com Scripts Python",
+      "Protótipos integrados a LLM"
+    ],
+    "productTools": "🧩 Ferramentas e Frameworks de Produto",
+    "productToolsList": [
+      "Planejamento de Roadmap (Jira Advanced Roadmaps, Productboard)",
+      "Estruturação de OKRs e KPIs",
+      "Wireframes de UX (Figma, Miro)",
+      "Frameworks de Descoberta (Opportunity Tree, Double Diamond)"
+    ],
+    "softSkills": "💬 Soft Skills",
+    "leadership": "🤝 Liderança e Comunicação",
+    "leadershipList": [
+      "Alinhamento de Times Multifuncionais",
+      "Feedback e Coaching",
+      "Gestão de Expectativas de Stakeholders",
+      "Storytelling com Dados"
+    ],
+    "strategicThinking": "🧭 Pensamento Estratégico de Produto",
+    "strategicThinkingList": [
+      "Pesquisa de Mercado e Usuário",
+      "Validação de Modelo de Negócio",
+      "Cultura de Experimentação",
+      "Tomada de Decisão com Trade-offs"
+    ],
+    "agileExecution": "⚙️ Ágil e Execução",
+    "agileExecutionList": [
+      "Planejamento de Sprints e Priorização",
+      "Gestão de Releases",
+      "Escopo Técnico com Devs",
+      "Resolução de Conflitos e Desbloqueios"
+    ],
+    "articlesResearch": "Artigos e Pesquisas",
+    "thesisResearch": "Pesquisa de Tese",
+    "technicalArticles": "Artigos Técnicos",
+    "comingSoon": "Em breve...",
+    "letsWork": "Vamos Trabalhar Juntos",
+    "lookingFor": "Procurando um Gerente de Produto que una expertise técnica e visão estratégica?",
+    "connectLinkedIn": "Conectar no LinkedIn"
+  },
+  "projectsGrid": {
+    "title": "Projetos",
+    "description": "Coleção de trabalhos em mobilidade elétrica, arquitetura de plataformas e pagamentos digitais. Cada projeto representa um desafio único em gestão de produto."
+  },
+  "notFound": {
+    "title": "Projeto Não Encontrado",
+    "description": "Desculpe, não conseguimos encontrar o projeto procurado.",
+    "viewAll": "Ver Todos os Projetos"
+  },
+  "projectPage": {
+    "role": "Papel",
+    "duration": "Duração",
+    "context": "Contexto",
+    "challenge": "Desafio",
+    "decisions": "Principais Decisões",
+    "results": "Resultados",
+    "stack": "Tecnologias",
+    "other": "Outros Projetos"
+  }
+}
