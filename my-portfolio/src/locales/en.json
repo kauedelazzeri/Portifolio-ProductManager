@@ -1,0 +1,103 @@
+{
+  "header": {
+    "home": "Home",
+    "projects": "Projects",
+    "skills": "Skills",
+    "articles": "Articles",
+    "contact": "Contact"
+  },
+  "home": {
+    "heroTitle": "Product Manager with expertise in electric mobility and digital platforms",
+    "heroSubtitle": "Building data-powered platforms for scalable impact.",
+    "heroBullets": [
+      "4+ years of experience as Product Manager",
+      "Specialized in electric mobility and digital platforms",
+      "Focused on growth, data-driven decisions, and strategic planning"
+    ],
+    "viewProjects": "View Projects",
+    "contactMe": "Contact Me",
+    "featured": "Featured Projects",
+    "viewAll": "View all projects →",
+    "project1Title": "MVP Social Betting Platform",
+    "project1Desc": "A social betting platform focused on user engagement and retention",
+    "project2Title": "Moments App",
+    "project2Desc": "Social event discovery and matching platform",
+    "technicalExpertise": "Technical Expertise",
+    "hardSkills": "🔧 Hard Skills",
+    "dataAnalytics": "📊 Data & Analytics",
+    "dataAnalyticsList": [
+      "Data Visualization (AWS QuickSight)",
+      "A/B Testing & Experimentation",
+      "SQL Optimization & Query Performance",
+      "Event Tracking Strategy (PostHog, Firebase)"
+    ],
+    "infrastructure": "☁️ Infrastructure",
+    "infrastructureList": [
+      "CI/CD Pipelines (GitHub Actions, Vercel)",
+      "API Management (REST, WebSockets)",
+      "Monitoring & Observability (CloudWatch)"
+    ],
+    "aiAutomation": "🧠 AI & Automation",
+    "aiAutomationList": [
+      "Prompt Engineering",
+      "Applied Machine Learning (Scikit-learn, TensorFlow, SVM)",
+      "Automation with Python Scripts",
+      "LLM-integrated Prototypes"
+    ],
+    "productTools": "🧩 Product Tooling & Frameworks",
+    "productToolsList": [
+      "Roadmap Planning (Jira Advanced Roadmaps, Productboard)",
+      "OKRs & KPIs Structuring",
+      "UX Wireframing (Figma, Miro)",
+      "Discovery Frameworks (Opportunity Tree, Double Diamond)"
+    ],
+    "softSkills": "💬 Soft Skills",
+    "leadership": "🤝 Leadership & Communication",
+    "leadershipList": [
+      "Cross-functional Team Alignment",
+      "Feedback & Coaching",
+      "Stakeholder Expectation Management",
+      "Storytelling with Data"
+    ],
+    "strategicThinking": "🧭 Strategic Product Thinking",
+    "strategicThinkingList": [
+      "Market & User Research",
+      "Business Model Validation",
+      "Experimentation Culture Building",
+      "Trade-off Decision Making"
+    ],
+    "agileExecution": "⚙️ Agile & Execution",
+    "agileExecutionList": [
+      "Sprint Planning & Prioritization",
+      "Release Management",
+      "Technical Scoping with Devs",
+      "Conflict Resolution & Unblocking"
+    ],
+    "articlesResearch": "Articles & Research",
+    "thesisResearch": "Thesis Research",
+    "technicalArticles": "Technical Articles",
+    "comingSoon": "Coming soon...",
+    "letsWork": "Let's Work Together",
+    "lookingFor": "Looking for a Product Manager who combines technical expertise with strategic vision?",
+    "connectLinkedIn": "Connect on LinkedIn"
+  },
+  "projectsGrid": {
+    "title": "Projects",
+    "description": "A curated collection of my work in electric mobility, platform architecture, and digital payments. Each project represents a unique challenge in product management."
+  },
+  "notFound": {
+    "title": "Project Not Found",
+    "description": "Sorry, we couldn't find the project you're looking for.",
+    "viewAll": "View All Projects"
+  },
+  "projectPage": {
+    "role": "Role",
+    "duration": "Duration",
+    "context": "Context",
+    "challenge": "Challenge",
+    "decisions": "Key Decisions",
+    "results": "Results",
+    "stack": "Tech Stack",
+    "other": "Other Projects"
+  }
+}

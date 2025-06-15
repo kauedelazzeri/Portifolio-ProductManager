@@ -4,20 +4,21 @@ import Link from "next/link";
 import Image from "next/image";
 import type { Case } from "@/lib/cases";
 import { cn } from "@/lib/utils";
+import { useTranslation } from "@/context/i18n";
 
 interface ProjectsGridProps {
   projects: Case[];
 }
 
 export function ProjectsGrid({ projects }: ProjectsGridProps) {
+  const { t } = useTranslation();
   return (
     <>
       <div className="animate-fade-in space-y-8 mb-16">
         <div>
-          <h1 className="text-4xl font-bold tracking-tight">Projects</h1>
+          <h1 className="text-4xl font-bold tracking-tight">{t('projectsGrid.title')}</h1>
           <p className="mt-4 text-lg text-muted-foreground max-w-2xl">
-            A curated collection of my work in electric mobility, platform architecture, and digital payments.
-            Each project represents a unique challenge in product management.
+            {t('projectsGrid.description')}
           </p>
         </div>
       </div>
