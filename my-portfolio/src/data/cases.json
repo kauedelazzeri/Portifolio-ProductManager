@@ -41,6 +41,70 @@
       ],
       "stack": ["IoT", "Real-time Monitoring", "Payment Systems", "Data Analytics", "UX Research"],
       "image": "/images/projects/ev-charging-preview.jpg"
+    },
+    {
+      "slug": "aposta-facil",
+      "title": "Aposta Fácil",
+      "summary": "Plataforma de apostas sociais para grupos de amigos, sem envolver dinheiro real.",
+      "role": "Product Manager & Developer",
+      "duration": "Ongoing",
+      "context": "Criada para promover diversão e engajamento em contextos recreativos, permitindo a criação de apostas com múltiplas opções e convite de amigos.",
+      "challenge": "Oferecer uma experiência em tempo real com login social opcional e controle de apostas em escala.",
+      "decisions": [
+        "Next.js 14 com TypeScript e Tailwind CSS",
+        "Backend serverless com Supabase",
+        "Deploy automatizado via Vercel"
+      ],
+      "results": [
+        "Integração com PostHog para métricas",
+        "Validação inicial de engajamento de usuários"
+      ],
+      "stack": ["Next.js", "TypeScript", "Tailwind CSS", "Supabase", "Vercel"],
+      "image": "/projects/aposta-facil.svg",
+      "repoLink": "https://github.com/kauedelazzeri/apostafacil"
+    },
+    {
+      "slug": "local-assistant",
+      "title": "Local Assistant",
+      "summary": "Solução de IA generativa local para busca de arquivos no computador sem depender da nuvem.",
+      "role": "Developer",
+      "duration": "2024",
+      "context": "Permite realizar perguntas em linguagem natural e encontrar arquivos com base em seu conteúdo, garantindo privacidade total.",
+      "challenge": "Combinar modelos locais e OCR para entregar respostas rápidas sem custos de nuvem.",
+      "decisions": [
+        "Orquestração com LangChain",
+        "Modelos locais via Ollama",
+        "OCR utilizando Tesseract"
+      ],
+      "results": [
+        "Automação pessoal de alta performance",
+        "Custo computacional reduzido"
+      ],
+      "stack": ["Python", "LangChain", "Ollama", "Tesseract", "Tkinter"],
+      "image": "/projects/local-assistant.svg",
+      "repoLink": "https://github.com/kauedelazzeri/local_assistant"
+    },
+    {
+      "slug": "wind-turbine-fault-prediction",
+      "title": "Wind Turbine Fault Prediction",
+      "summary": "Modelo de machine learning para prever falhas em turbinas eólicas analisando correntes elétricas do gerador.",
+      "role": "Researcher",
+      "duration": "Mestrado",
+      "context": "Projeto de pesquisa focado em identificar falhas como desequilíbrio de massa e problemas de pitch sem sensores adicionais.",
+      "challenge": "Obter alta acurácia a partir de sinais elétricos simulados.",
+      "decisions": [
+        "Pré-processamento com PCA e LDA",
+        "Classificação via SVM",
+        "Comparação com oito algoritmos de ML"
+      ],
+      "results": [
+        "Acurácia de até 97.6%",
+        "Modelo superior aos concorrentes"
+      ],
+      "stack": ["Python", "Scikit-learn", "MATLAB", "Simulink", "SVM"],
+      "image": "/projects/wind-turbine.svg",
+      "repoLink": "https://github.com/kauedelazzeri/Wind-Turbine-Fault-Prediction",
+      "articleLink": "/articles/wind-turbine-fault-prediction.pdf"
     }
   ]
 }
