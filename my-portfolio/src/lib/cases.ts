@@ -12,6 +12,8 @@ export type Case = {
   results: string[];
   stack: string[];
   image: string;
+  repoLink?: string;
+  articleLink?: string;
 };
 
 export function getAllCases(): Case[] {

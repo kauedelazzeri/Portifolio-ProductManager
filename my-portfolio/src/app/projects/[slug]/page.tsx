@@ -60,6 +60,22 @@ export default function ProjectPage({ params }: ProjectPageProps) {
           ))}
         </ul>
 
+        {project.repoLink && (
+          <p>
+            <a href={project.repoLink} target="_blank" rel="noopener noreferrer">
+              View code on GitHub
+            </a>
+          </p>
+        )}
+
+        {project.articleLink && (
+          <p>
+            <a href={project.articleLink} target="_blank" rel="noopener noreferrer">
+              Read article (PDF)
+            </a>
+          </p>
+        )}
+
         <h2>Tech Stack</h2>
         <div className="flex flex-wrap gap-2 not-prose">
           {project.stack.map((tech) => (
