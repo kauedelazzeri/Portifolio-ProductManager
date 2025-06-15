@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import posthog from "posthog-js";
 
 export default function Analytics() {
-  const pathname = usePathname();
+  const pathname = usePathname() ?? "";
 
   // initialize posthog once
   useEffect(() => {
