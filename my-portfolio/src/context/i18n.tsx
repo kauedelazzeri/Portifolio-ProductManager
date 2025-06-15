@@ -32,6 +32,12 @@ export function I18nProvider({ children }: { children: React.ReactNode }) {
     setLangState(lng)
   }
 
+  useEffect(() => {
+    if (typeof document !== 'undefined') {
+      document.documentElement.lang = lang
+    }
+  }, [lang])
+
   const t = (key: string): any => {
     const keys = key.split('.')
     let result: any = dictionaries[lang]

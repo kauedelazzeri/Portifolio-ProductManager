@@ -1,3 +1,4 @@
+"use client";
 import { notFound } from "next/navigation";
 import { getCaseBySlug, getOtherCases } from "@/lib/cases";
 import Link from "next/link";
