@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import posthog from "posthog-js";
 import type { Case } from "@/lib/cases";
 import { cn } from "@/lib/utils";
 
@@ -28,6 +29,7 @@ export function ProjectsGrid({ projects }: ProjectsGridProps) {
             key={project.slug}
             href={`/projects/${project.slug}`}
             className="group block h-full"
+            onClick={() => posthog.capture("project_card_click", { slug: project.slug })}
           >
             <div className="relative overflow-hidden rounded-xl border bg-card transition-all duration-300 hover:border-foreground/50 hover:shadow-lg">
               <div className="aspect-[16/9] w-full overflow-hidden bg-muted">

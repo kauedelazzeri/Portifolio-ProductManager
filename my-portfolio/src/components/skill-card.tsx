@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import posthog from "posthog-js";
 import { cn } from "@/lib/utils";
 
 interface Skill {
@@ -17,6 +18,16 @@ interface SkillCardProps {
 export function SkillCard({ skill }: SkillCardProps) {
   const [isExpanded, setIsExpanded] = useState(false);
 
+  const toggle = () => {
+    setIsExpanded((prev) => {
+      const next = !prev;
+      if (next) {
+        posthog.capture("skill_expand", { title: skill.title });
+      }
+      return next;
+    });
+  };
+
   return (
     <div
       className={cn(
@@ -24,7 +35,7 @@ export function SkillCard({ skill }: SkillCardProps) {
         "hover:border-foreground/50 hover:shadow-lg",
         "cursor-pointer"
       )}
-      onClick={() => setIsExpanded(!isExpanded)}
+      onClick={toggle}
     >
       <div className="flex items-start justify-between">
         <div className="flex items-center gap-4">

@@ -26,5 +26,20 @@ Create a `.env.local` file based on `.env.example` and add your PostHog key:
 
 ```bash
 cp my-portfolio/.env.example my-portfolio/.env.local
-# then edit my-portfolio/.env.local
+# then edit my-portfolio/.env.local with:
+# NEXT_PUBLIC_POSTHOG_KEY=<your-key>
+# NEXT_PUBLIC_POSTHOG_HOST=https://us.i.posthog.com
 ```
+
+### PostHog event mapping
+
+| Event name | Trigger | Properties |
+|------------|---------|------------|
+| `page_loaded` | Any page load | `path`, `language`, `userAgent` |
+| `section_view` | Section becomes visible or projects link clicked | `section` |
+| `contact_button` | Hero or menu contact button clicked | - |
+| `contact_email` | Email link clicked | - |
+| `contact_linkedin` | LinkedIn link clicked | - |
+| `project_card_click` | Project card link clicked | `slug` |
+| `skill_expand` | Skill card expanded | `title` |
+

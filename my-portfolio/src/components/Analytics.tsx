@@ -53,6 +53,12 @@ export default function Analytics() {
     const handleProjects = () => posthog.capture("section_view", { section: "projects" });
     projectsLink?.addEventListener("click", handleProjects);
 
+    const contactButtons = Array.from(
+      document.querySelectorAll('a[href$="#contact"], a[href="/#contact"]')
+    );
+    const handleContact = () => posthog.capture("contact_button");
+    contactButtons.forEach((btn) => btn.addEventListener("click", handleContact));
+
     const emailLink = document.querySelector('a[href^="mailto:"]');
     const handleEmail = () => posthog.capture("contact_email");
     emailLink?.addEventListener("click", handleEmail);
@@ -61,9 +67,13 @@ export default function Analytics() {
     const handleLinkedin = () => posthog.capture("contact_linkedin");
     linkedinLink?.addEventListener("click", handleLinkedin);
 
+
     return () => {
       observers.forEach((o) => o.disconnect());
       projectsLink?.removeEventListener("click", handleProjects);
+      contactButtons.forEach((btn) =>
+        btn.removeEventListener("click", handleContact)
+      );
       emailLink?.removeEventListener("click", handleEmail);
       linkedinLink?.removeEventListener("click", handleLinkedin);
     };
