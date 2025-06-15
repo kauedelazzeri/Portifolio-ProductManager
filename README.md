@@ -20,3 +20,11 @@ yarn dev
 pnpm dev
 # or
 bun dev
+```
+
+Create a `.env.local` file based on `.env.example` and add your PostHog key:
+
+```bash
+cp my-portfolio/.env.example my-portfolio/.env.local
+# then edit my-portfolio/.env.local
+```
