@@ -6,6 +6,8 @@ import Header from "@/components/Header";
 import { defaultMetadata } from "@/config/metadata";
 import { favicons } from "@/config/favicons";
 import { Suspense } from "react";
+import Script from "next/script";
+import Analytics from "@/components/Analytics";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -39,6 +41,7 @@ export default function RootLayout({
             {children}
           </main>
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );
