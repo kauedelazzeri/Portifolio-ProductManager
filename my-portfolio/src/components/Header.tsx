@@ -4,18 +4,20 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { ThemeSwitch } from "./theme-switch";
-
-const navigation = [
-  { name: "Home", href: "/" },
-  { name: "Projects", href: "/projects" },
-  { name: "Skills", href: "/#skills" },
-  { name: "Articles", href: "/#articles" },
-  { name: "Contact", href: "/#contact" },
-];
+import { useTranslation } from "@/context/i18n";
+import { LanguageSwitch } from "./language-switch";
 
 export default function Header() {
   const pathname = usePathname();
   const router = useRouter();
+  const { t } = useTranslation();
+  const navigation = [
+    { name: t('header.home'), href: '/' },
+    { name: t('header.projects'), href: '/projects' },
+    { name: t('header.skills'), href: '/#skills' },
+    { name: t('header.articles'), href: '/#articles' },
+    { name: t('header.contact'), href: '/#contact' },
+  ];
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
 
@@ -64,6 +66,7 @@ export default function Header() {
           </div>
           <div className="flex items-center space-x-4">
             <ThemeSwitch />
+            <LanguageSwitch />
           </div>
         </nav>
       </div>
