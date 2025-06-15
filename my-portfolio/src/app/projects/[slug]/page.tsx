@@ -1,7 +1,9 @@
+"use client";
 import { notFound } from "next/navigation";
 import { getCaseBySlug, getOtherCases } from "@/lib/cases";
 import Link from "next/link";
 import Image from "next/image";
+import { useTranslation } from "@/context/i18n";
 
 interface ProjectPageProps {
   params: {
@@ -10,6 +12,7 @@ interface ProjectPageProps {
 }
 
 export default function ProjectPage({ params }: ProjectPageProps) {
+  const { t } = useTranslation();
   const project = getCaseBySlug(params.slug);
   const otherProjects = getOtherCases(params.slug);
 
@@ -22,8 +25,8 @@ export default function ProjectPage({ params }: ProjectPageProps) {
       <header className="mb-8">
         <h1 className="text-4xl font-bold tracking-tight mb-4">{project.title}</h1>
         <div className="flex flex-wrap gap-4 text-sm text-muted-foreground">
-          <p>Role: {project.role}</p>
-          <p>Duration: {project.duration}</p>
+          <p>{t('projectPage.role')}: {project.role}</p>
+          <p>{t('projectPage.duration')}: {project.duration}</p>
         </div>
       </header>
 
@@ -40,27 +43,27 @@ export default function ProjectPage({ params }: ProjectPageProps) {
       )}
 
       <div className="prose dark:prose-invert max-w-none">
-        <h2>Context</h2>
+        <h2>{t('projectPage.context')}</h2>
         <p>{project.context}</p>
 
-        <h2>Challenge</h2>
+        <h2>{t('projectPage.challenge')}</h2>
         <p>{project.challenge}</p>
 
-        <h2>Key Decisions</h2>
+        <h2>{t('projectPage.decisions')}</h2>
         <ul>
           {project.decisions.map((decision, index) => (
             <li key={index}>{decision}</li>
           ))}
         </ul>
 
-        <h2>Results</h2>
+        <h2>{t('projectPage.results')}</h2>
         <ul>
           {project.results.map((result, index) => (
             <li key={index}>{result}</li>
           ))}
         </ul>
 
-        <h2>Tech Stack</h2>
+        <h2>{t('projectPage.stack')}</h2>
         <div className="flex flex-wrap gap-2 not-prose">
           {project.stack.map((tech) => (
             <span
@@ -75,7 +78,7 @@ export default function ProjectPage({ params }: ProjectPageProps) {
 
       {otherProjects.length > 0 && (
         <aside className="mt-16 border-t pt-8">
-          <h2 className="text-2xl font-bold mb-8">Other Projects</h2>
+          <h2 className="text-2xl font-bold mb-8">{t('projectPage.other')}</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {otherProjects.map((project) => (
               <Link

@@ -22,9 +22,22 @@ pnpm dev
 bun dev
 ```
 
+First, install the dependencies inside the `my-portfolio` directory:
+
+```bash
+cd my-portfolio
+npm install
+```
+
 Create a `.env.local` file based on `.env.example` and add your PostHog key:
 
 ```bash
 cp my-portfolio/.env.example my-portfolio/.env.local
 # then edit my-portfolio/.env.local
+```
+
+To generate a production build:
+
+```bash
+npm run build
 ```

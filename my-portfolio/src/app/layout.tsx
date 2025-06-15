@@ -7,6 +7,7 @@ import { defaultMetadata } from "@/config/metadata";
 import { favicons } from "@/config/favicons";
 import { Suspense } from "react";
 import Analytics from "@/components/Analytics";
+import { I18nProvider } from "@/context/i18n";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -34,12 +35,14 @@ export default function RootLayout({
         "min-h-screen bg-background font-sans antialiased",
         inter.variable
       )}>
-        <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
-          <Header />
-          <main className="container mx-auto px-4 py-8">
-            {children}
-          </main>
-        </ThemeProvider>
+        <I18nProvider>
+          <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
+            <Header />
+            <main className="container mx-auto px-4 py-8">
+              {children}
+            </main>
+          </ThemeProvider>
+        </I18nProvider>
         <Analytics />
       </body>
     </html>
