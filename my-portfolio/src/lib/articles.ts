@@ -4,6 +4,8 @@ import { serialize } from 'next-mdx-remote/serialize';
 import remarkGfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
 import rehypeSanitize from 'rehype-sanitize';
+import fs from 'fs';
+import path from 'path';
 
 const articlesCache: Record<string, Article> = {};
 
@@ -15,8 +17,10 @@ export async function getArticleBySlug(slug: string, locale: string): Promise<Ar
   }
 
   try {
-    const fileContent = await import(`@/content/articles/${locale}/${slug}.md`);
-    const { data, content } = matter(fileContent.default);
+    const articlesDirectory = path.join(process.cwd(), 'src', 'content', 'articles', locale);
+    const filePath = path.join(articlesDirectory, `${slug}.md`);
+    const fileContent = fs.readFileSync(filePath, 'utf-8');
+    const { data, content } = matter(fileContent);
 
     const mdxSource = await serialize(content, {
       mdxOptions: {
@@ -45,10 +49,17 @@ export async function getArticleBySlug(slug: string, locale: string): Promise<Ar
 
 export async function getAllArticles(locale: string): Promise<Article[]> {
   try {
-    const articles = await Promise.all([
-      getArticleBySlug("wind-turbine-fault-prediction", locale),
-      getArticleBySlug("movie-genre-prediction", locale),
-    ]);
+    const articlesDirectory = path.join(process.cwd(), 'src', 'content', 'articles', locale);
+    const fileNames = fs.readdirSync(articlesDirectory);
+    
+    const articlePromises = fileNames
+      .filter(fileName => fileName.endsWith('.md'))
+      .map(async fileName => {
+        const slug = fileName.replace(/\.md$/, '');
+        return getArticleBySlug(slug, locale);
+      });
+
+    const articles = await Promise.all(articlePromises);
 
     return articles.filter((article): article is Article => article !== null);
   } catch (error) {
