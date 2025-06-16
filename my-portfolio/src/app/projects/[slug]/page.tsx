@@ -1,7 +1,12 @@
 import { notFound } from "next/navigation";
 import { getCaseBySlug, getOtherCases } from "@/lib/cases";
-import Link from "next/link";
+import { getArticleBySlug } from "@/lib/articles";
+import { cookies } from 'next/headers';
+import { MarkdownContent } from "@/components/markdown-content";
 import Image from "next/image";
+import Link from "next/link";
+import pt from '@/locales/pt.json';
+import en from '@/locales/en.json';
 
 interface ProjectPageProps {
   params: {
@@ -9,21 +14,45 @@ interface ProjectPageProps {
   };
 }
 
-export default function ProjectPage({ params }: ProjectPageProps) {
+export default async function ProjectPage({ params }: ProjectPageProps) {
+  const cookieStore = cookies();
+  const lang = cookieStore.get('NEXT_LOCALE')?.value || 'en';
+  const translations: Record<string, any> = lang === 'pt' ? pt : en;
+
+  const t = (key: string) => {
+    const parts = key.split('.');
+    let current: any = translations;
+    for (const part of parts) {
+      if (current && typeof current === 'object' && part in current) {
+        current = current[part];
+      } else {
+        return key;
+      }
+    }
+    return typeof current === 'string' ? current : key;
+  };
+
   const project = getCaseBySlug(params.slug);
-  const otherProjects = getOtherCases(params.slug);
 
   if (!project) {
     notFound();
   }
+
+  const articleContent = await getArticleBySlug(params.slug, lang);
+
+  if (!articleContent) {
+    notFound();
+  }
+
+  const otherProjects = getOtherCases(params.slug);
 
   return (
     <article className="animate-fade-in max-w-4xl mx-auto">
       <header className="mb-8">
         <h1 className="text-4xl font-bold tracking-tight mb-4">{project.title}</h1>
         <div className="flex flex-wrap gap-4 text-sm text-muted-foreground">
-          <p>Role: {project.role}</p>
-          <p>Duration: {project.duration}</p>
+          <p>{t('projectPage.role')}: {project.role}</p>
+          <p>{t('projectPage.duration')}: {project.duration}</p>
         </div>
       </header>
 
@@ -40,55 +69,25 @@ export default function ProjectPage({ params }: ProjectPageProps) {
       )}
 
       <div className="prose dark:prose-invert max-w-none">
-        <h2>Context</h2>
-        <p>{project.context}</p>
-
-        <h2>Challenge</h2>
-        <p>{project.challenge}</p>
-
-        <h2>Key Decisions</h2>
-        <ul>
-          {project.decisions.map((decision, index) => (
-            <li key={index}>{decision}</li>
-          ))}
-        </ul>
-
-        <h2>Results</h2>
-        <ul>
-          {project.results.map((result, index) => (
-            <li key={index}>{result}</li>
-          ))}
-        </ul>
-
-        <h2>Tech Stack</h2>
-        <div className="flex flex-wrap gap-2 not-prose">
-          {project.stack.map((tech) => (
-            <span
-              key={tech}
-              className="inline-flex items-center rounded-full bg-primary/10 px-2.5 py-1 text-xs font-medium text-primary"
-            >
-              {tech}
-            </span>
-          ))}
-        </div>
+        <MarkdownContent content={articleContent.content} />
       </div>
 
       {otherProjects.length > 0 && (
         <aside className="mt-16 border-t pt-8">
-          <h2 className="text-2xl font-bold mb-8">Other Projects</h2>
+          <h2 className="text-2xl font-bold mb-8">{t('projectPage.other')}</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {otherProjects.map((project) => (
+            {otherProjects.map((proj) => (
               <Link
-                key={project.slug}
-                href={`/projects/${project.slug}`}
+                key={proj.slug}
+                href={`/projects/${proj.slug}`}
                 className="group block"
               >
                 <div className="relative overflow-hidden rounded-lg border bg-card p-6 transition-all hover:border-foreground/50 hover:shadow-lg">
                   <h3 className="font-semibold group-hover:text-primary transition-colors">
-                    {project.title}
+                    {proj.title}
                   </h3>
                   <p className="mt-2 text-sm text-muted-foreground line-clamp-2">
-                    {project.summary}
+                    {proj.summary}
                   </p>
                 </div>
               </Link>

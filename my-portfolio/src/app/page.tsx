@@ -1,7 +1,10 @@
+"use client";
 import Link from "next/link";
 import Image from "next/image";
+import { useTranslation } from "@/context/i18n";
 
 export default function Home() {
+  const { t } = useTranslation();
   return (
     <div className="flex flex-col gap-16 pb-8">
       {/* Hero Section */}
@@ -19,26 +22,20 @@ export default function Home() {
         <div className="flex flex-col gap-6">
           <div>
             <h1 className="text-3xl font-bold sm:text-5xl">
-              Product Manager with expertise in electric mobility and digital platforms
+              {t('home.heroTitle')}
             </h1>
             <p className="mt-4 max-w-[700px] text-lg text-muted-foreground">
-              Building data-powered platforms for scalable impact.
+              {t('home.heroSubtitle')}
             </p>
           </div>
 
           <ul className="space-y-2 text-muted-foreground">
-            <li className="flex items-center gap-2">
-              <span className="text-foreground">•</span>
-              4+ years of experience as Product Manager
-            </li>
-            <li className="flex items-center gap-2">
-              <span className="text-foreground">•</span>
-              Specialized in electric mobility and digital platforms
-            </li>
-            <li className="flex items-center gap-2">
-              <span className="text-foreground">•</span>
-              Focused on growth, data-driven decisions, and strategic planning
-            </li>
+            {Array.isArray(t('home.heroBullets')) && (t('home.heroBullets') as string[]).map((item) => (
+              <li key={item} className="flex items-center gap-2">
+                <span className="text-foreground">•</span>
+                {item}
+              </li>
+            ))}
           </ul>
 
           <div className="flex gap-4">
@@ -46,13 +43,13 @@ export default function Home() {
               href="/projects"
               className="inline-flex h-10 items-center justify-center rounded-md bg-primary px-8 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
             >
-              View Projects
+              {t('home.viewProjects')}
             </Link>
             <Link
               href="#contact"
               className="inline-flex h-10 items-center justify-center rounded-md border border-input bg-background px-8 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground"
             >
-              Contact Me
+              {t('home.contactMe')}
             </Link>
           </div>
         </div>
@@ -61,117 +58,109 @@ export default function Home() {
       {/* Projects Preview Section */}
       <section>
         <div className="flex items-center justify-between">
-          <h2 className="text-2xl font-semibold">Featured Projects</h2>
-          <Link href="/projects" className="text-sm text-muted-foreground hover:text-foreground">
-            View all projects →
-          </Link>
+        <h2 className="text-2xl font-semibold">{t('home.projects')}</h2>
+        <Link href="/projects" className="text-sm text-muted-foreground hover:text-foreground">
+            {t('home.viewAllProjects')}
+        </Link>
         </div>
         
         <div className="mt-8 grid gap-6 md:grid-cols-2">
-          <Link href="/projects/mvp-social-betting" className="group relative overflow-hidden rounded-lg border p-6 transition-colors hover:border-foreground">
-            <div className="aspect-video w-full overflow-hidden rounded-md bg-muted mb-4">
-              <div className="flex h-full items-center justify-center text-sm text-muted-foreground">
-                Project screenshot
-              </div>
+          <Link href="/projects/movie-genre-prediction" className="group relative overflow-hidden rounded-lg border p-6 transition-colors hover:border-foreground">
+            <div className="relative aspect-video w-full overflow-hidden rounded-md bg-muted mb-4">
+              <Image 
+                src="/images/articles/movie-genre-prediction/icon.png" 
+                alt="Movie Genre Prediction" 
+                fill 
+                className="object-cover" 
+              />
             </div>
-            <h3 className="font-semibold">MVP Social Betting Platform</h3>
-            <p className="mt-2 text-sm text-muted-foreground">A social betting platform focused on user engagement and retention</p>
+            <h3 className="font-semibold text-lg text-center mt-2">{t('home.movieGenreProject')}</h3>
+            <p className="mt-2 text-sm text-muted-foreground">{t('home.movieGenreDescription')}</p>
           </Link>
 
-          <Link href="/projects/moments-app" className="group relative overflow-hidden rounded-lg border p-6 transition-colors hover:border-foreground">
-            <div className="aspect-video w-full overflow-hidden rounded-md bg-muted mb-4">
-              <div className="flex h-full items-center justify-center text-sm text-muted-foreground">
-                Project screenshot
-              </div>
+          <Link href="/projects/wind-turbine-fault-prediction" className="group relative overflow-hidden rounded-lg border p-6 transition-colors hover:border-foreground">
+            <div className="relative aspect-video w-full overflow-hidden rounded-md bg-muted mb-4">
+              <Image 
+                src="/images/articles/wind-turbine/icon.png" 
+                alt="Wind Turbine Fault Prediction" 
+                fill 
+                className="object-cover" 
+              />
             </div>
-            <h3 className="font-semibold">Moments App</h3>
-            <p className="mt-2 text-sm text-muted-foreground">Social event discovery and matching platform</p>
+            <h3 className="font-semibold text-lg text-center mt-2">{t('home.windTurbineProject')}</h3>
+            <p className="mt-2 text-sm text-muted-foreground">{t('home.windTurbineDescription')}</p>
           </Link>
         </div>
       </section>
 
       {/* Skills Section */}
       <section id="skills" className="scroll-mt-16">
-        <h2 className="mb-8 text-2xl font-semibold">Technical Expertise</h2>
+        <h2 className="mb-8 text-2xl font-semibold">{t('home.technicalSkills')}</h2>
         <div className="grid gap-8 md:grid-cols-2">
           {/* Hard Skills */}
           <div className="space-y-6">
-            <h3 className="text-xl font-medium">🔧 Hard Skills</h3>
-            
+            <h3 className="text-xl font-medium">Hard Skills</h3>
             <div className="space-y-6">
               <div className="rounded-lg border p-4">
-                <h4 className="font-medium">📊 Data & Analytics</h4>
+                <h4 className="font-medium">{t('home.dataAnalytics')}</h4>
                 <ul className="mt-2 space-y-1 text-sm text-muted-foreground">
-                  <li>Data Visualization (AWS QuickSight)</li>
-                  <li>A/B Testing & Experimentation</li>
-                  <li>SQL Optimization & Query Performance</li>
-                  <li>Event Tracking Strategy (PostHog, Firebase)</li>
+                  {Array.isArray(t('home.dataAnalyticsList')) && (t('home.dataAnalyticsList') as string[]).map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
                 </ul>
               </div>
-
               <div className="rounded-lg border p-4">
-                <h4 className="font-medium">☁️ Infrastructure</h4>
+                <h4 className="font-medium">{t('home.infrastructure')}</h4>
                 <ul className="mt-2 space-y-1 text-sm text-muted-foreground">
-                  <li>CI/CD Pipelines (GitHub Actions, Vercel)</li>
-                  <li>API Management (REST, WebSockets)</li>
-                  <li>Monitoring & Observability (CloudWatch)</li>
+                  {Array.isArray(t('home.infrastructureList')) && (t('home.infrastructureList') as string[]).map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
                 </ul>
               </div>
-
               <div className="rounded-lg border p-4">
-                <h4 className="font-medium">🧠 AI & Automation</h4>
+                <h4 className="font-medium">{t('home.aiAutomation')}</h4>
                 <ul className="mt-2 space-y-1 text-sm text-muted-foreground">
-                  <li>Prompt Engineering</li>
-                  <li>Applied Machine Learning (Scikit-learn, TensorFlow, SVM)</li>
-                  <li>Automation with Python Scripts</li>
-                  <li>LLM-integrated Prototypes</li>
+                  {Array.isArray(t('home.aiAutomationList')) && (t('home.aiAutomationList') as string[]).map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
                 </ul>
               </div>
-
               <div className="rounded-lg border p-4">
-                <h4 className="font-medium">🧩 Product Tooling & Frameworks</h4>
+                <h4 className="font-medium">{t('home.productTools')}</h4>
                 <ul className="mt-2 space-y-1 text-sm text-muted-foreground">
-                  <li>Roadmap Planning (Jira Advanced Roadmaps, Productboard)</li>
-                  <li>OKRs & KPIs Structuring</li>
-                  <li>UX Wireframing (Figma, Miro)</li>
-                  <li>Discovery Frameworks (Opportunity Tree, Double Diamond)</li>
+                  {Array.isArray(t('home.productToolsList')) && (t('home.productToolsList') as string[]).map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
                 </ul>
               </div>
             </div>
           </div>
-
           {/* Soft Skills */}
           <div className="space-y-6">
-            <h3 className="text-xl font-medium">💬 Soft Skills</h3>
-            
+            <h3 className="text-xl font-medium">Soft Skills</h3>
             <div className="space-y-6">
               <div className="rounded-lg border p-4">
-                <h4 className="font-medium">🤝 Leadership & Communication</h4>
+                <h4 className="font-medium">{t('home.leadership')}</h4>
                 <ul className="mt-2 space-y-1 text-sm text-muted-foreground">
-                  <li>Cross-functional Team Alignment</li>
-                  <li>Feedback & Coaching</li>
-                  <li>Stakeholder Expectation Management</li>
-                  <li>Storytelling with Data</li>
+                  {Array.isArray(t('home.leadershipList')) && (t('home.leadershipList') as string[]).map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
                 </ul>
               </div>
-
               <div className="rounded-lg border p-4">
-                <h4 className="font-medium">🧭 Strategic Product Thinking</h4>
+                <h4 className="font-medium">{t('home.strategicThinking')}</h4>
                 <ul className="mt-2 space-y-1 text-sm text-muted-foreground">
-                  <li>Market & User Research</li>
-                  <li>Business Model Validation</li>
-                  <li>Experimentation Culture Building</li>
-                  <li>Trade-off Decision Making</li>
+                  {Array.isArray(t('home.strategicThinkingList')) && (t('home.strategicThinkingList') as string[]).map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
                 </ul>
               </div>
-
               <div className="rounded-lg border p-4">
-                <h4 className="font-medium">⚙️ Agile & Execution</h4>
+                <h4 className="font-medium">{t('home.agileExecution')}</h4>
                 <ul className="mt-2 space-y-1 text-sm text-muted-foreground">
-                  <li>Sprint Planning & Prioritization</li>
-                  <li>Release Management</li>
-                  <li>Technical Scoping with Devs</li>
-                  <li>Conflict Resolution & Unblocking</li>
+                  {Array.isArray(t('home.agileExecutionList')) && (t('home.agileExecutionList') as string[]).map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
                 </ul>
               </div>
             </div>
@@ -181,16 +170,16 @@ export default function Home() {
 
       {/* Articles Section */}
       <section id="articles" className="scroll-mt-16">
-        <h2 className="mb-8 text-2xl font-semibold">Articles & Research</h2>
+        <h2 className="mb-8 text-2xl font-semibold">{t('home.articlesResearch')}</h2>
         <div className="grid gap-6 md:grid-cols-2">
-          <div className="group rounded-lg border p-6 transition-colors hover:border-foreground">
-            <h3 className="font-semibold">Thesis Research</h3>
-            <p className="mt-2 text-sm text-muted-foreground">Coming soon...</p>
-          </div>
+          <Link href="/projects/wind-turbine-fault-prediction" className="group rounded-lg border p-6 transition-colors hover:border-foreground">
+            <h3 className="font-semibold">{t('home.thesisResearch')}</h3>
+            <p className="mt-2 text-sm text-muted-foreground">{t('home.thesisResearchSummary')}</p>
+          </Link>
 
           <div className="group rounded-lg border p-6 transition-colors hover:border-foreground">
-            <h3 className="font-semibold">Technical Articles</h3>
-            <p className="mt-2 text-sm text-muted-foreground">Coming soon...</p>
+            <h3 className="font-semibold">{t('home.technicalArticlesTitle')}</h3>
+            <p className="mt-2 text-sm text-muted-foreground">{t('home.technicalArticlesDescription')}</p>
           </div>
         </div>
       </section>
@@ -198,10 +187,10 @@ export default function Home() {
       {/* Contact Section */}
       <section id="contact" className="scroll-mt-16 rounded-lg border bg-card p-8 text-card-foreground">
         <div className="flex flex-col items-center gap-4 text-center">
-          <h2 className="text-2xl font-semibold">Let's Work Together</h2>
-          <p className="max-w-[600px] text-muted-foreground">
-            Looking for a Product Manager who combines technical expertise with strategic vision?
-          </p>
+        <h2 className="text-2xl font-semibold">{t('home.letsWork')}</h2>
+        <p className="max-w-[600px] text-muted-foreground">
+            {t('home.lookingFor')}
+        </p>
           <div className="flex flex-col items-center gap-4">
             <a
               href="mailto:kauedelazzeri@gmail.com"
@@ -215,7 +204,7 @@ export default function Home() {
               rel="noopener noreferrer"
               className="inline-flex h-10 items-center justify-center rounded-md border border-input px-8 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground"
             >
-              Connect on LinkedIn
+              {t('home.connectLinkedIn')}
             </a>
           </div>
         </div>
