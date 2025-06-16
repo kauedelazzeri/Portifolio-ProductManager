@@ -1,36 +1,38 @@
 'use client'
-import React, { createContext, useContext, useEffect, useState } from 'react'
+import React, { createContext, useContext, useEffect, useState, ReactNode } from 'react'
 import en from '@/locales/en.json'
 import pt from '@/locales/pt.json'
+import { useRouter } from 'next/navigation'
+import Cookies from 'js-cookie'
 
 export type Lang = 'en' | 'pt'
 
-const dictionaries = { en, pt }
-
-interface I18nContextProps {
+type I18nContextType = {
+  t: (key: string) => string | string[]
   lang: Lang
+  locale: Lang
   setLang: (lang: Lang) => void
-  t: (key: string) => any
 }
 
-const I18nContext = createContext<I18nContextProps | undefined>(undefined)
+const I18nContext = createContext<I18nContextType | undefined>(undefined)
 
-export function I18nProvider({ children }: { children: React.ReactNode }) {
-  const [lang, setLangState] = useState<Lang>('en')
+const translations = { en, pt }
+
+export function I18nProvider({ children }: { children: ReactNode }) {
+  const [lang, setLangState] = useState<Lang>('pt')
+  const router = useRouter()
 
   useEffect(() => {
     const stored = (typeof window !== 'undefined' && localStorage.getItem('lang')) as Lang | null
     if (stored === 'en' || stored === 'pt') {
       setLangState(stored)
+      Cookies.set('NEXT_LOCALE', stored)
     } else if (typeof navigator !== 'undefined') {
-      setLangState(navigator.language.startsWith('pt') ? 'pt' : 'en')
+      const browserLang = navigator.language.startsWith('pt') ? 'pt' : 'en'
+      setLangState(browserLang)
+      Cookies.set('NEXT_LOCALE', browserLang)
     }
   }, [])
-
-  const setLang = (lng: Lang) => {
-    localStorage.setItem('lang', lng)
-    setLangState(lng)
-  }
 
   useEffect(() => {
     if (typeof document !== 'undefined') {
@@ -38,18 +40,38 @@ export function I18nProvider({ children }: { children: React.ReactNode }) {
     }
   }, [lang])
 
-  const t = (key: string): any => {
+  const setLang = (newLang: Lang) => {
+    setLangState(newLang)
+    localStorage.setItem('lang', newLang)
+    Cookies.set('NEXT_LOCALE', newLang)
+    router.refresh() // Refresh the page to update server components
+  }
+
+  const t = (key: string): string | string[] => {
     const keys = key.split('.')
-    let result: any = dictionaries[lang]
+    let value: any = translations[lang]
+    
     for (const k of keys) {
-      result = result?.[k]
-      if (result === undefined) return key
+      value = value?.[k]
     }
-    return result === undefined ? key : result
+    
+    // If the value is an object (and not null), and it's an array, return it as is
+    if (Array.isArray(value)) {
+      return value
+    }
+
+    // If the value is an object, return the key as fallback
+    if (typeof value === 'object' && value !== null) {
+      console.warn(`Translation key "${key}" returned an object instead of a string or array`)
+      return key
+    }
+    
+    // If the value is undefined or null, return the key as fallback
+    return value?.toString() || key
   }
 
   return (
-    <I18nContext.Provider value={{ lang, setLang, t }}>
+    <I18nContext.Provider value={{ t, lang, locale: lang, setLang }}>
       {children}
     </I18nContext.Provider>
   )
@@ -57,6 +79,8 @@ export function I18nProvider({ children }: { children: React.ReactNode }) {
 
 export function useTranslation() {
   const context = useContext(I18nContext)
-  if (!context) throw new Error('useTranslation must be used within I18nProvider')
-  return { t: context.t, lang: context.lang, setLang: context.setLang }
+  if (context === undefined) {
+    throw new Error('useTranslation must be used within an I18nProvider')
+  }
+  return context
 }

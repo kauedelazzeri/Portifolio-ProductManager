@@ -30,7 +30,7 @@ export default function Home() {
           </div>
 
           <ul className="space-y-2 text-muted-foreground">
-            {(t('home.heroBullets') as string[]).map((item) => (
+            {Array.isArray(t('home.heroBullets')) && (t('home.heroBullets') as string[]).map((item) => (
               <li key={item} className="flex items-center gap-2">
                 <span className="text-foreground">•</span>
                 {item}
@@ -99,7 +99,7 @@ export default function Home() {
               <div className="rounded-lg border p-4">
                 <h4 className="font-medium">{t('home.dataAnalytics')}</h4>
                 <ul className="mt-2 space-y-1 text-sm text-muted-foreground">
-                  {(t('home.dataAnalyticsList') as string[]).map((item) => (
+                  {Array.isArray(t('home.dataAnalyticsList')) && (t('home.dataAnalyticsList') as string[]).map((item) => (
                     <li key={item}>{item}</li>
                   ))}
                 </ul>
@@ -108,7 +108,7 @@ export default function Home() {
               <div className="rounded-lg border p-4">
                 <h4 className="font-medium">{t('home.infrastructure')}</h4>
                 <ul className="mt-2 space-y-1 text-sm text-muted-foreground">
-                  {(t('home.infrastructureList') as string[]).map((item) => (
+                  {Array.isArray(t('home.infrastructureList')) && (t('home.infrastructureList') as string[]).map((item) => (
                     <li key={item}>{item}</li>
                   ))}
                 </ul>
@@ -117,7 +117,7 @@ export default function Home() {
               <div className="rounded-lg border p-4">
                 <h4 className="font-medium">{t('home.aiAutomation')}</h4>
                 <ul className="mt-2 space-y-1 text-sm text-muted-foreground">
-                  {(t('home.aiAutomationList') as string[]).map((item) => (
+                  {Array.isArray(t('home.aiAutomationList')) && (t('home.aiAutomationList') as string[]).map((item) => (
                     <li key={item}>{item}</li>
                   ))}
                 </ul>
@@ -126,7 +126,7 @@ export default function Home() {
               <div className="rounded-lg border p-4">
                 <h4 className="font-medium">{t('home.productTools')}</h4>
                 <ul className="mt-2 space-y-1 text-sm text-muted-foreground">
-                  {(t('home.productToolsList') as string[]).map((item) => (
+                  {Array.isArray(t('home.productToolsList')) && (t('home.productToolsList') as string[]).map((item) => (
                     <li key={item}>{item}</li>
                   ))}
                 </ul>
@@ -142,7 +142,7 @@ export default function Home() {
               <div className="rounded-lg border p-4">
                 <h4 className="font-medium">{t('home.leadership')}</h4>
                 <ul className="mt-2 space-y-1 text-sm text-muted-foreground">
-                  {(t('home.leadershipList') as string[]).map((item) => (
+                  {Array.isArray(t('home.leadershipList')) && (t('home.leadershipList') as string[]).map((item) => (
                     <li key={item}>{item}</li>
                   ))}
                 </ul>
@@ -151,7 +151,7 @@ export default function Home() {
               <div className="rounded-lg border p-4">
                 <h4 className="font-medium">{t('home.strategicThinking')}</h4>
                 <ul className="mt-2 space-y-1 text-sm text-muted-foreground">
-                  {(t('home.strategicThinkingList') as string[]).map((item) => (
+                  {Array.isArray(t('home.strategicThinkingList')) && (t('home.strategicThinkingList') as string[]).map((item) => (
                     <li key={item}>{item}</li>
                   ))}
                 </ul>
@@ -160,7 +160,7 @@ export default function Home() {
               <div className="rounded-lg border p-4">
                 <h4 className="font-medium">{t('home.agileExecution')}</h4>
                 <ul className="mt-2 space-y-1 text-sm text-muted-foreground">
-                  {(t('home.agileExecutionList') as string[]).map((item) => (
+                  {Array.isArray(t('home.agileExecutionList')) && (t('home.agileExecutionList') as string[]).map((item) => (
                     <li key={item}>{item}</li>
                   ))}
                 </ul>

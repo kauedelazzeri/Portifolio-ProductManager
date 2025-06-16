@@ -1,110 +1,70 @@
 {
   "cases": [
     {
-      "slug": "social-betting-platform",
-      "title": "Social Betting MVP",
-      "summary": "Simulated product focused on engagement and retention in a no-login social betting context.",
-      "role": "Product Manager",
-      "duration": "6 months",
-      "context": "Led the development of a social betting MVP that aimed to increase user engagement through social features and gamification.",
-      "challenge": "Design a betting platform that would attract and retain users without requiring a login, while maintaining high engagement rates.",
-      "decisions": [
-        "Implemented a cookie-based anonymous user system",
-        "Created a social leaderboard with temporary nicknames",
-        "Designed a progressive revelation of features based on user engagement"
-      ],
-      "results": [
-        "Achieved 45% Day-1 retention rate",
-        "Average of 8 bets per user per session",
-        "85% of users engaged with social features"
-      ],
-      "stack": ["Next.js", "Tailwind CSS", "Product Strategy", "User Research", "A/B Testing"],
-      "image": "/images/projects/social-betting-preview.jpg"
-    },
-    {
-      "slug": "ev-charging-platform",
-      "title": "EV Charging Network Platform",
-      "summary": "Developed a comprehensive platform for managing and monitoring electric vehicle charging stations across multiple regions.",
-      "role": "Senior Product Manager",
-      "duration": "12 months",
-      "context": "Led the development of a unified platform to manage a network of EV charging stations, focusing on both B2B and B2C aspects.",
-      "challenge": "Create a scalable platform that could handle real-time monitoring of charging stations while providing a seamless experience for both station operators and end users.",
-      "decisions": [
-        "Implemented real-time monitoring system with webhook notifications",
-        "Designed a flexible pricing model for different user segments",
-        "Created a unified dashboard for station operators"
-      ],
-      "results": [
-        "Successfully integrated 500+ charging stations",
-        "Reduced maintenance response time by 60%",
-        "Increased station utilization by 35%"
-      ],
-      "stack": ["IoT", "Real-time Monitoring", "Payment Systems", "Data Analytics", "UX Research"],
-      "image": "/images/projects/ev-charging-preview.jpg"
-    },
-    {
-      "slug": "aposta-facil",
-      "title": "Aposta Fácil",
-      "summary": "Plataforma de apostas sociais para grupos de amigos, sem envolver dinheiro real.",
-      "role": "Product Manager & Developer",
-      "duration": "Ongoing",
-      "context": "Criada para promover diversão e engajamento em contextos recreativos, permitindo a criação de apostas com múltiplas opções e convite de amigos.",
-      "challenge": "Oferecer uma experiência em tempo real com login social opcional e controle de apostas em escala.",
-      "decisions": [
-        "Next.js 14 com TypeScript e Tailwind CSS",
-        "Backend serverless com Supabase",
-        "Deploy automatizado via Vercel"
-      ],
-      "results": [
-        "Integração com PostHog para métricas",
-        "Validação inicial de engajamento de usuários"
-      ],
-      "stack": ["Next.js", "TypeScript", "Tailwind CSS", "Supabase", "Vercel"],
-      "image": "/projects/aposta-facil.svg",
-      "repoLink": "https://github.com/kauedelazzeri/apostafacil"
-    },
-    {
-      "slug": "local-assistant",
-      "title": "Local Assistant",
-      "summary": "Solução de IA generativa local para busca de arquivos no computador sem depender da nuvem.",
-      "role": "Developer",
-      "duration": "2024",
-      "context": "Permite realizar perguntas em linguagem natural e encontrar arquivos com base em seu conteúdo, garantindo privacidade total.",
-      "challenge": "Combinar modelos locais e OCR para entregar respostas rápidas sem custos de nuvem.",
-      "decisions": [
-        "Orquestração com LangChain",
-        "Modelos locais via Ollama",
-        "OCR utilizando Tesseract"
-      ],
-      "results": [
-        "Automação pessoal de alta performance",
-        "Custo computacional reduzido"
-      ],
-      "stack": ["Python", "LangChain", "Ollama", "Tesseract", "Tkinter"],
-      "image": "/projects/local-assistant.svg",
-      "repoLink": "https://github.com/kauedelazzeri/local_assistant"
-    },
-    {
       "slug": "wind-turbine-fault-prediction",
-      "title": "Wind Turbine Fault Prediction",
-      "summary": "Modelo de machine learning para prever falhas em turbinas eólicas analisando correntes elétricas do gerador.",
+      "title": "Wind Turbine Fault Prediction with SVM, PCA and LDA",
+      "summary": "Technical-business analysis of an AI pipeline for the wind sector for early fault detection using only current signatures.",
       "role": "Researcher",
       "duration": "Mestrado",
-      "context": "Projeto de pesquisa focado em identificar falhas como desequilíbrio de massa e problemas de pitch sem sensores adicionais.",
-      "challenge": "Obter alta acurácia a partir de sinais elétricos simulados.",
+      "context": "Unplanned wind turbine downtime can reach 237 h/year, directly affecting revenue and increasing maintenance costs. The proposed method uses only generator current signatures — a non-invasive approach that reduces CAPEX and OPEX — and achieves 97.6% accuracy in early fault detection.",
+      "challenge": "Develop a non-invasive and accurate method for fault detection in wind turbines, using only generator electrical signals, without the need for additional sensors.",
       "decisions": [
-        "Pré-processamento com PCA e LDA",
-        "Classificação via SVM",
-        "Comparação com oito algoritmos de ML"
+        "Synthetic database construction using TurbSim (wind), FAST (GE 1.5s turbine) and MATLAB/Simulink (PMSG generator)",
+        "Preprocessing with PCA (99.99% variance) and LDA (6 components)",
+        "Modeling via SVM with RBF kernel and optimization via Grid-Search (10-fold CV)",
+        "Benchmark against k-NN, QDA, Trees, RF, AdaBoost, ANN and linear SVM"
       ],
       "results": [
-        "Acurácia de até 97.6%",
-        "Modelo superior aos concorrentes"
+        "Global accuracy of 97.6% with F1 ≥ 0.92 in all classes",
+        "98% reduction in dataset size after PCA + LDA",
+        "Hyperparameter search time reduced to ~2 min",
+        "Method superior to competitors in all evaluated metrics"
+      ],  
+      "stack": [
+        "Python",
+        "Scikit-learn",
+        "MATLAB/Simulink",
+        "SVM",
+        "PCA/LDA",
+        "MLOps",
+        "Engenharia de Dados"
       ],
-      "stack": ["Python", "Scikit-learn", "MATLAB", "Simulink", "SVM"],
-      "image": "/projects/wind-turbine.svg",
+      "image": "/images/articles/wind-turbine/icon.png",
       "repoLink": "https://github.com/kauedelazzeri/Wind-Turbine-Fault-Prediction",
-      "articleLink": "/articles/wind-turbine-fault-prediction.pdf"
+      "articleLink": "/articles/wind-turbine-fault-prediction"
+    },
+    {
+      "slug": "movie-genre-prediction",
+      "title": "Movie Genre Prediction Based on Posters",
+      "summary": "Analysis of movie genre classification using convolutional neural networks and transfer learning to identify visual patterns in movie posters.",
+      "role": "Researcher & Developer",
+      "duration": "2024",
+      "context": "Automatic movie genre classification has important applications in streaming, content recommendation, and market analysis. By using only posters — already available and standardized resources — the method reduces implementation costs and provides valuable insights into cinema's visual communication.",
+      "challenge": "Develop a deep learning model capable of identifying visual patterns in movie posters and classifying them into movie genres with high accuracy, using only visual information.",
+      "decisions": [
+        "Implementation of two architectures: custom neural network and VGG16 with transfer learning",
+        "Dataset of 45,000+ posters collected via TMDB API",
+        "Preprocessing with data augmentation and class balancing",
+        "Fine-tuning VGG16 for multiclass classification"
+      ],
+      "results": [
+        "Global accuracy of 85% in classifying major genres",
+        "Inference time less than 100ms per image",
+        "Identification of genre-specific visual patterns",
+        "REST API for real-time classification"
+      ],
+      "stack": [
+        "Python",
+        "PyTorch",
+        "Computer Vision",
+        "Deep Learning",
+        "Transfer Learning",
+        "CNN",
+        "MLOps"
+      ],
+      "image": "/images/articles/movie-genre-prediction/icon.png",
+      "repoLink": "https://github.com/kauedelazzeri/movie-genre-prediction",
+      "articleLink": "/articles/movie-genre-prediction"
     }
   ]
 }
