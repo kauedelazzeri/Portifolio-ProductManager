@@ -9,6 +9,7 @@ import { LanguageSwitch } from "./language-switch";
 import { useState } from "react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 
+
 export default function Header() {
   const pathname = usePathname();
   const router = useRouter();
@@ -21,8 +22,10 @@ export default function Header() {
     { name: t('header.articles'), href: '/#articles' },
     { name: t('header.contact'), href: '/#contact' },
   ];
+
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
+
 
     if (pathname !== "/" && href.startsWith("/#")) {
       // If we're not on the home page and trying to navigate to a section
@@ -68,6 +71,7 @@ export default function Header() {
               </Link>
             ))}
           </div>
+
           <div className="flex items-center space-x-4">
             <ThemeSwitch />
             <LanguageSwitch />
@@ -113,3 +117,4 @@ export default function Header() {
     </header>
   )
 }
+
