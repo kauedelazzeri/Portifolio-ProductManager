@@ -81,6 +81,9 @@
     ],
     "articlesResearch": "Articles & Research",
     "thesisResearch": "Thesis Research",
+    "thesisResearchSummary": "My undergraduate thesis research, exploring innovative solutions to real-world challenges.",
+    "technicalArticlesTitle": "Technical Articles",
+    "technicalArticlesDescription": "Soon to be released technical articles and texts on PM, PO, SCRUM, Product Management, Projects...",
     "technicalArticles": "A collection of technical articles and insights covering topics such as machine learning, product development, and market strategies.",
     "viewAllArticles": "View all articles",
     "windTurbineArticle": "Wind Turbine Fault Prediction with SVM, PCA and LDA - Technical-business analysis of an AI pipeline for the wind sector.",
@@ -100,7 +103,8 @@
     "challenge": "Challenge",
     "decisions": "Technical Decisions",
     "results": "Results",
-    "stack": "Technologies"
+    "stack": "Technologies",
+    "other": "More Projects"
   },
   "article": {
     "date": "Date",

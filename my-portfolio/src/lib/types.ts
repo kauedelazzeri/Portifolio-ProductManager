@@ -1,3 +1,5 @@
+import { MDXRemoteSerializeResult } from 'next-mdx-remote';
+
 export type Article = {
   slug: string;
   title: string;
@@ -5,7 +7,7 @@ export type Article = {
   date: string;
   author: string;
   tags: string[];
-  content: string;
+  content: MDXRemoteSerializeResult;
 };
 
 export type Project = {

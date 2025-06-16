@@ -80,7 +80,10 @@
       "Refinamento e Quebra de Épicos/Histórias"
     ],
     "articlesResearch": "Artigos e Pesquisas",
-    "thesisResearch": "Pesquisa de Mestrado",
+    "thesisResearch": "Pesquisa de Graduação",
+    "thesisResearchSummary": "Minha pesquisa de conclusão de graduação, explorando soluções inovadoras para desafios do mundo real.",
+    "technicalArticlesTitle": "Artigos Técnicos",
+    "technicalArticlesDescription": "Em breve serão lançados artigos e textos técnicos sobre PM, PO, SCRUM, Gerenciamento de produtos, projetos...",
     "technicalArticles": "Uma coleção de artigos técnicos e insights que cobrem tópicos como machine learning, desenvolvimento de produtos e estratégias de mercado.",
     "viewAllArticles": "Ver todos os artigos",
     "windTurbineArticle": "Predição de Falhas em Aerogeradores com SVM, PCA e LDA - Análise técnico-negocial de um pipeline de IA aplicado ao setor eólico.",
@@ -105,7 +108,8 @@
     "challenge": "Desafio",
     "decisions": "Decisões Técnicas",
     "results": "Resultados",
-    "stack": "Tecnologias"
+    "stack": "Tecnologias",
+    "other": "Outros Projetos"
   },
   "article": {
     "date": "Data",

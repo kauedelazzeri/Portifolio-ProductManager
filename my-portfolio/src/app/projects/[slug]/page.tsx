@@ -1,11 +1,12 @@
-"use client";
 import { notFound } from "next/navigation";
 import { getCaseBySlug, getOtherCases } from "@/lib/cases";
-import Link from "next/link";
-import Image from "next/image";
-import { useTranslation } from "@/context/i18n";
+import { getArticleBySlug } from "@/lib/articles";
+import { cookies } from 'next/headers';
 import { MarkdownContent } from "@/components/markdown-content";
-import { useEffect, useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import pt from '@/locales/pt.json';
+import en from '@/locales/en.json';
 
 interface ProjectPageProps {
   params: {
@@ -13,32 +14,37 @@ interface ProjectPageProps {
   };
 }
 
-export default function ProjectPage({ params }: ProjectPageProps) {
-  const { t, lang } = useTranslation();
-  const project = getCaseBySlug(params.slug);
-  const otherProjects = getOtherCases(params.slug);
-  const [markdown, setMarkdown] = useState<string | null>(null);
+export default async function ProjectPage({ params }: ProjectPageProps) {
+  const cookieStore = cookies();
+  const lang = cookieStore.get('NEXT_LOCALE')?.value || 'en';
+  const translations: Record<string, any> = lang === 'pt' ? pt : en;
 
-  useEffect(() => {
-    async function fetchMarkdown() {
-      try {
-        const res = await fetch(`/src/content/articles/${lang}/${params.slug}.md`);
-        if (res.ok) {
-          const text = await res.text();
-          setMarkdown(text);
-        } else {
-          setMarkdown(null);
-        }
-      } catch {
-        setMarkdown(null);
+  const t = (key: string) => {
+    const parts = key.split('.');
+    let current: any = translations;
+    for (const part of parts) {
+      if (current && typeof current === 'object' && part in current) {
+        current = current[part];
+      } else {
+        return key;
       }
     }
-    fetchMarkdown();
-  }, [lang, params.slug]);
+    return typeof current === 'string' ? current : key;
+  };
+
+  const project = getCaseBySlug(params.slug);
 
   if (!project) {
     notFound();
   }
+
+  const articleContent = await getArticleBySlug(params.slug, lang);
+
+  if (!articleContent) {
+    notFound();
+  }
+
+  const otherProjects = getOtherCases(params.slug);
 
   return (
     <article className="animate-fade-in max-w-4xl mx-auto">
@@ -63,71 +69,25 @@ export default function ProjectPage({ params }: ProjectPageProps) {
       )}
 
       <div className="prose dark:prose-invert max-w-none">
-        {markdown ? (
-          <MarkdownContent content={markdown} />
-        ) : (
-          <>
-            <h2>{t('projectPage.context')}</h2>
-            <p>{project.context}</p>
-            <h2>{t('projectPage.challenge')}</h2>
-            <p>{project.challenge}</p>
-            <h2>{t('projectPage.decisions')}</h2>
-            <ul>
-              {project.decisions.map((decision, index) => (
-                <li key={index}>{decision}</li>
-              ))}
-            </ul>
-            <h2>{t('projectPage.results')}</h2>
-            <ul>
-              {project.results.map((result, index) => (
-                <li key={index}>{result}</li>
-              ))}
-            </ul>
-            {project.repoLink && (
-              <p>
-                <a href={project.repoLink} target="_blank" rel="noopener noreferrer">
-                  View code on GitHub
-                </a>
-              </p>
-            )}
-            {project.articleLink && (
-              <p>
-                <a href={project.articleLink} target="_blank" rel="noopener noreferrer">
-                  Read article (PDF)
-                </a>
-              </p>
-            )}
-            <h2>{t('projectPage.stack')}</h2>
-            <div className="flex flex-wrap gap-2 not-prose">
-              {project.stack.map((tech) => (
-                <span
-                  key={tech}
-                  className="inline-flex items-center rounded-full bg-primary/10 px-2.5 py-1 text-xs font-medium text-primary"
-                >
-                  {tech}
-                </span>
-              ))}
-            </div>
-          </>
-        )}
+        <MarkdownContent content={articleContent.content} />
       </div>
 
       {otherProjects.length > 0 && (
         <aside className="mt-16 border-t pt-8">
           <h2 className="text-2xl font-bold mb-8">{t('projectPage.other')}</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {otherProjects.map((project) => (
+            {otherProjects.map((proj) => (
               <Link
-                key={project.slug}
-                href={`/projects/${project.slug}`}
+                key={proj.slug}
+                href={`/projects/${proj.slug}`}
                 className="group block"
               >
                 <div className="relative overflow-hidden rounded-lg border bg-card p-6 transition-all hover:border-foreground/50 hover:shadow-lg">
                   <h3 className="font-semibold group-hover:text-primary transition-colors">
-                    {project.title}
+                    {proj.title}
                   </h3>
                   <p className="mt-2 text-sm text-muted-foreground line-clamp-2">
-                    {project.summary}
+                    {proj.summary}
                   </p>
                 </div>
               </Link>

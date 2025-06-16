@@ -174,12 +174,12 @@ export default function Home() {
         <div className="grid gap-6 md:grid-cols-2">
           <Link href="/projects/wind-turbine-fault-prediction" className="group rounded-lg border p-6 transition-colors hover:border-foreground">
             <h3 className="font-semibold">{t('home.thesisResearch')}</h3>
-            <p className="mt-2 text-sm text-muted-foreground">{t('home.comingSoon')}</p>
+            <p className="mt-2 text-sm text-muted-foreground">{t('home.thesisResearchSummary')}</p>
           </Link>
 
           <div className="group rounded-lg border p-6 transition-colors hover:border-foreground">
-            <h3 className="font-semibold">{t('home.technicalArticles')}</h3>
-            <p className="mt-2 text-sm text-muted-foreground">{t('home.comingSoon')}</p>
+            <h3 className="font-semibold">{t('home.technicalArticlesTitle')}</h3>
+            <p className="mt-2 text-sm text-muted-foreground">{t('home.technicalArticlesDescription')}</p>
           </div>
         </div>
       </section>
