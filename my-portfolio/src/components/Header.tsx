@@ -6,11 +6,14 @@ import { cn } from "@/lib/utils";
 import { ThemeSwitch } from "./theme-switch";
 import { useTranslation } from "@/context/i18n";
 import { LanguageSwitch } from "./language-switch";
+import { useState } from "react";
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 
 export default function Header() {
   const pathname = usePathname();
   const router = useRouter();
   const { t } = useTranslation();
+  const [menuOpen, setMenuOpen] = useState(false);
   const navigation = [
     { name: t('header.home'), href: '/' },
     { name: t('header.projects'), href: '/projects' },
@@ -36,17 +39,18 @@ export default function Header() {
       // Regular navigation
       router.push(href);
     }
+    setMenuOpen(false);
   };
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-16 items-center">
-        <div className="mr-8">
+      <div className="container flex h-16 items-center justify-between">
+        <div className="mr-8 flex-1">
           <Link href="/" className="text-xl font-bold hover:text-primary transition-colors">
             Kaue Delazzeri
           </Link>
         </div>
-        <nav className="flex flex-1 items-center justify-between">
+        <nav className="hidden flex-1 items-center justify-between md:flex">
           <div className="flex gap-6">
             {navigation.map((item) => (
               <Link
@@ -69,7 +73,43 @@ export default function Header() {
             <LanguageSwitch />
           </div>
         </nav>
+        <button
+          className="md:hidden rounded-lg p-2 hover:bg-secondary/80 transition-colors"
+          onClick={() => setMenuOpen((p) => !p)}
+          aria-label="Toggle menu"
+        >
+          {menuOpen ? (
+            <XMarkIcon className="h-6 w-6" />
+          ) : (
+            <Bars3Icon className="h-6 w-6" />
+          )}
+        </button>
       </div>
+      {menuOpen && (
+        <div className="border-b border-border/40 bg-background md:hidden">
+          <div className="container flex flex-col space-y-2 py-4">
+            {navigation.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                onClick={(e) => handleClick(e, item.href)}
+                className={cn(
+                  "text-sm font-medium transition-colors hover:text-primary",
+                  (pathname === item.href ||
+                    (pathname === "/" && item.href.startsWith("/#"))) &&
+                    "text-primary"
+                )}
+              >
+                {item.name}
+              </Link>
+            ))}
+            <div className="flex items-center space-x-4 pt-2">
+              <ThemeSwitch />
+              <LanguageSwitch />
+            </div>
+          </div>
+        </div>
+      )}
     </header>
   )
 }
