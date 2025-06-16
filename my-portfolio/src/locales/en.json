@@ -6,6 +6,13 @@
     "about": "About",
     "contact": "Contact"
   },
+  "header": {
+    "home": "Home",
+    "projects": "Projects",
+    "skills": "Skills",
+    "articles": "Articles",
+    "contact": "Contact"
+  },
   "home": {
     "title": "Kaue Delazzeri",
     "subtitle": "Product Manager & Researcher",
@@ -28,25 +35,25 @@
     "movieGenreDescription": "Analysis of movie genre classification using convolutional neural networks and transfer learning to identify visual patterns in movie posters.",
     "technicalSkills": "My Technical Skills",
     "skillsDescription": "A comprehensive overview of my technical competencies and the tools I use daily.",
-    "dataAnalytics": "Data & Analytics",
+    "dataAnalytics": "📊 Data & Analytics",
     "dataAnalyticsList": [
       "Data Visualization (AWS QuickSight)",
       "A/B Testing & Experimentation",
       "SQL (Redshift, PostgreSQL, MySQL)"
     ],
-    "infrastructure": "Platform Infrastructure",
+    "infrastructure": "☁️ Platform Infrastructure",
     "infrastructureList": [
       "API Architecture (REST, GraphQL)",
       "Microservices & Serverless",
       "Cloud Computing (AWS, Azure)"
     ],
-    "aiAutomation": "AI & Automation",
+    "aiAutomation": "🤖 AI & Automation",
     "aiAutomationList": [
       "LLM-integrated Prototypes",
       "Process Automation",
       "AI-powered MVP"
     ],
-    "productTools": "Product Tooling & Frameworks",
+    "productTools": "🛠️ Product Tooling & Frameworks",
     "productToolsList": [
       "Roadmap Planning (Jira Advanced Roadmaps, Productboard)",
       "OKRs & KPIs Structuring",
@@ -54,19 +61,19 @@
       "Discovery Frameworks (Opportunity Tree, Double Diamond)"
     ],
     "softSkills": "Soft Skills",
-    "leadership": "Leadership & Communication",
+    "leadership": "🗣️ Leadership & Communication",
     "leadershipList": [
       "Cross-functional Team Alignment",
       "Feedback & Coaching",
       "Stakeholder Management"
     ],
-    "strategicThinking": "Strategic Thinking",
+    "strategicThinking": "🧠 Strategic Thinking",
     "strategicThinkingList": [
       "Product Vision & Prioritization",
       "Market & Competitor Analysis",
       "Go-to-Market Strategy Development"
     ],
-    "agileExecution": "Agile Execution",
+    "agileExecution": "⚡ Agile Execution",
     "agileExecutionList": [
       "Scrum & Kanban",
       "Backlog Management",

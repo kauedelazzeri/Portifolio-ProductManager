@@ -4,6 +4,8 @@ import { getCaseBySlug, getOtherCases } from "@/lib/cases";
 import Link from "next/link";
 import Image from "next/image";
 import { useTranslation } from "@/context/i18n";
+import { MarkdownContent } from "@/components/markdown-content";
+import { useEffect, useState } from "react";
 
 interface ProjectPageProps {
   params: {
@@ -12,9 +14,27 @@ interface ProjectPageProps {
 }
 
 export default function ProjectPage({ params }: ProjectPageProps) {
-  const { t } = useTranslation();
+  const { t, lang } = useTranslation();
   const project = getCaseBySlug(params.slug);
   const otherProjects = getOtherCases(params.slug);
+  const [markdown, setMarkdown] = useState<string | null>(null);
+
+  useEffect(() => {
+    async function fetchMarkdown() {
+      try {
+        const res = await fetch(`/src/content/articles/${lang}/${params.slug}.md`);
+        if (res.ok) {
+          const text = await res.text();
+          setMarkdown(text);
+        } else {
+          setMarkdown(null);
+        }
+      } catch {
+        setMarkdown(null);
+      }
+    }
+    fetchMarkdown();
+  }, [lang, params.slug]);
 
   if (!project) {
     notFound();
@@ -43,51 +63,53 @@ export default function ProjectPage({ params }: ProjectPageProps) {
       )}
 
       <div className="prose dark:prose-invert max-w-none">
-        <h2>{t('projectPage.context')}</h2>
-        <p>{project.context}</p>
-
-        <h2>{t('projectPage.challenge')}</h2>
-        <p>{project.challenge}</p>
-
-        <h2>{t('projectPage.decisions')}</h2>
-        <ul>
-          {project.decisions.map((decision, index) => (
-            <li key={index}>{decision}</li>
-          ))}
-        </ul>
-        <h2>{t('projectPage.results')}</h2>
-        <ul>
-          {project.results.map((result, index) => (
-            <li key={index}>{result}</li>
-          ))}
-        </ul>
-
-        {project.repoLink && (
-          <p>
-            <a href={project.repoLink} target="_blank" rel="noopener noreferrer">
-              View code on GitHub
-            </a>
-          </p>
+        {markdown ? (
+          <MarkdownContent content={markdown} />
+        ) : (
+          <>
+            <h2>{t('projectPage.context')}</h2>
+            <p>{project.context}</p>
+            <h2>{t('projectPage.challenge')}</h2>
+            <p>{project.challenge}</p>
+            <h2>{t('projectPage.decisions')}</h2>
+            <ul>
+              {project.decisions.map((decision, index) => (
+                <li key={index}>{decision}</li>
+              ))}
+            </ul>
+            <h2>{t('projectPage.results')}</h2>
+            <ul>
+              {project.results.map((result, index) => (
+                <li key={index}>{result}</li>
+              ))}
+            </ul>
+            {project.repoLink && (
+              <p>
+                <a href={project.repoLink} target="_blank" rel="noopener noreferrer">
+                  View code on GitHub
+                </a>
+              </p>
+            )}
+            {project.articleLink && (
+              <p>
+                <a href={project.articleLink} target="_blank" rel="noopener noreferrer">
+                  Read article (PDF)
+                </a>
+              </p>
+            )}
+            <h2>{t('projectPage.stack')}</h2>
+            <div className="flex flex-wrap gap-2 not-prose">
+              {project.stack.map((tech) => (
+                <span
+                  key={tech}
+                  className="inline-flex items-center rounded-full bg-primary/10 px-2.5 py-1 text-xs font-medium text-primary"
+                >
+                  {tech}
+                </span>
+              ))}
+            </div>
+          </>
         )}
-
-        {project.articleLink && (
-          <p>
-            <a href={project.articleLink} target="_blank" rel="noopener noreferrer">
-              Read article (PDF)
-            </a>
-          </p>
-)}
-        <h2>{t('projectPage.stack')}</h2>
-        <div className="flex flex-wrap gap-2 not-prose">
-          {project.stack.map((tech) => (
-            <span
-              key={tech}
-              className="inline-flex items-center rounded-full bg-primary/10 px-2.5 py-1 text-xs font-medium text-primary"
-            >
-              {tech}
-            </span>
-          ))}
-        </div>
       </div>
 
       {otherProjects.length > 0 && (

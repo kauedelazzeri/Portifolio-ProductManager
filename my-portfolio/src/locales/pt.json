@@ -35,25 +35,25 @@
     "movieGenreDescription": "Análise de classificação de gêneros cinematográficos usando redes neurais convolucionais e transfer learning para identificar padrões visuais em cartazes de filmes.",
     "technicalSkills": "Minhas Habilidades Técnicas",
     "skillsDescription": "Uma visão abrangente das minhas competências técnicas e ferramentas que utilizo no dia a dia.",
-    "dataAnalytics": "Análise de Dados",
+    "dataAnalytics": "📊 Análise de Dados",
     "dataAnalyticsList": [
       "Visualização de Dados (AWS QuickSight)",
       "Teste A/B e Experimentação",
       "SQL (Redshift, PostgreSQL, MySQL)"
     ],
-    "infrastructure": "Infraestrutura de Plataforma",
+    "infrastructure": "☁️ Infraestrutura de Plataforma",
     "infrastructureList": [
       "Arquitetura de API (REST, GraphQL)",
       "Microsserviços e Serveless",
       "Cloud Computing (AWS, Azure)"
     ],
-    "aiAutomation": "IA e Automação",
+    "aiAutomation": "🤖 IA e Automação",
     "aiAutomationList": [
       "LLM-integrated Prototypes",
       "Automação de Processos",
       "MVP com IA"
     ],
-    "productTools": "Ferramentas e Frameworks de Produto",
+    "productTools": "🛠️ Ferramentas e Frameworks de Produto",
     "productToolsList": [
       "Planejamento de Roadmap (Jira Advanced Roadmaps, Productboard)",
       "OKRs e Estruturação de KPIs",
@@ -61,19 +61,19 @@
       "Frameworks de Descoberta (Opportunity Tree, Double Diamond)"
     ],
     "softSkills": "Habilidades Comportamentais",
-    "leadership": "Liderança e Comunicação",
+    "leadership": "🗣️ Liderança e Comunicação",
     "leadershipList": [
       "Alinhamento de Equipes Cross-funcionais",
       "Feedback e Coaching",
       "Gestão de Stakeholders"
     ],
-    "strategicThinking": "Pensamento Estratégico",
+    "strategicThinking": "🧠 Pensamento Estratégico",
     "strategicThinkingList": [
       "Visão de Produto e Priorização",
       "Análise de Mercado e Concorrência",
       "Desenvolvimento de Estratégia de Entrada no Mercado"
     ],
-    "agileExecution": "Execução Ágil",
+    "agileExecution": "⚡ Execução Ágil",
     "agileExecutionList": [
       "Scrum e Kanban",
       "Gestão de Backlog",

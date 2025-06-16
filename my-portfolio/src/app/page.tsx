@@ -58,43 +58,48 @@ export default function Home() {
       {/* Projects Preview Section */}
       <section>
         <div className="flex items-center justify-between">
-        <h2 className="text-2xl font-semibold">{t('home.featured')}</h2>
+        <h2 className="text-2xl font-semibold">{t('home.projects')}</h2>
         <Link href="/projects" className="text-sm text-muted-foreground hover:text-foreground">
-            {t('home.viewAll')}
+            {t('home.viewAllProjects')}
         </Link>
         </div>
         
         <div className="mt-8 grid gap-6 md:grid-cols-2">
-          <Link href="/projects/mvp-social-betting" className="group relative overflow-hidden rounded-lg border p-6 transition-colors hover:border-foreground">
-            <div className="aspect-video w-full overflow-hidden rounded-md bg-muted mb-4">
-              <div className="flex h-full items-center justify-center text-sm text-muted-foreground">
-                Project screenshot
-              </div>
+          <Link href="/projects/movie-genre-prediction" className="group relative overflow-hidden rounded-lg border p-6 transition-colors hover:border-foreground">
+            <div className="relative aspect-video w-full overflow-hidden rounded-md bg-muted mb-4">
+              <Image 
+                src="/images/articles/movie-genre-prediction/icon.png" 
+                alt="Movie Genre Prediction" 
+                fill 
+                className="object-cover" 
+              />
             </div>
-            <h3 className="font-semibold">{t('home.project1Title')}</h3>
-            <p className="mt-2 text-sm text-muted-foreground">{t('home.project1Desc')}</p>
+            <h3 className="font-semibold text-lg text-center mt-2">{t('home.movieGenreProject')}</h3>
+            <p className="mt-2 text-sm text-muted-foreground">{t('home.movieGenreDescription')}</p>
           </Link>
 
-          <Link href="/projects/moments-app" className="group relative overflow-hidden rounded-lg border p-6 transition-colors hover:border-foreground">
-            <div className="aspect-video w-full overflow-hidden rounded-md bg-muted mb-4">
-              <div className="flex h-full items-center justify-center text-sm text-muted-foreground">
-                Project screenshot
-              </div>
+          <Link href="/projects/wind-turbine-fault-prediction" className="group relative overflow-hidden rounded-lg border p-6 transition-colors hover:border-foreground">
+            <div className="relative aspect-video w-full overflow-hidden rounded-md bg-muted mb-4">
+              <Image 
+                src="/images/articles/wind-turbine/icon.png" 
+                alt="Wind Turbine Fault Prediction" 
+                fill 
+                className="object-cover" 
+              />
             </div>
-            <h3 className="font-semibold">{t('home.project2Title')}</h3>
-            <p className="mt-2 text-sm text-muted-foreground">{t('home.project2Desc')}</p>
+            <h3 className="font-semibold text-lg text-center mt-2">{t('home.windTurbineProject')}</h3>
+            <p className="mt-2 text-sm text-muted-foreground">{t('home.windTurbineDescription')}</p>
           </Link>
         </div>
       </section>
 
       {/* Skills Section */}
       <section id="skills" className="scroll-mt-16">
-        <h2 className="mb-8 text-2xl font-semibold">{t('home.technicalExpertise')}</h2>
+        <h2 className="mb-8 text-2xl font-semibold">{t('home.technicalSkills')}</h2>
         <div className="grid gap-8 md:grid-cols-2">
           {/* Hard Skills */}
           <div className="space-y-6">
-            <h3 className="text-xl font-medium">{t('home.hardSkills')}</h3>
-            
+            <h3 className="text-xl font-medium">Hard Skills</h3>
             <div className="space-y-6">
               <div className="rounded-lg border p-4">
                 <h4 className="font-medium">{t('home.dataAnalytics')}</h4>
@@ -104,7 +109,6 @@ export default function Home() {
                   ))}
                 </ul>
               </div>
-
               <div className="rounded-lg border p-4">
                 <h4 className="font-medium">{t('home.infrastructure')}</h4>
                 <ul className="mt-2 space-y-1 text-sm text-muted-foreground">
@@ -113,7 +117,6 @@ export default function Home() {
                   ))}
                 </ul>
               </div>
-
               <div className="rounded-lg border p-4">
                 <h4 className="font-medium">{t('home.aiAutomation')}</h4>
                 <ul className="mt-2 space-y-1 text-sm text-muted-foreground">
@@ -122,7 +125,6 @@ export default function Home() {
                   ))}
                 </ul>
               </div>
-
               <div className="rounded-lg border p-4">
                 <h4 className="font-medium">{t('home.productTools')}</h4>
                 <ul className="mt-2 space-y-1 text-sm text-muted-foreground">
@@ -133,11 +135,9 @@ export default function Home() {
               </div>
             </div>
           </div>
-
           {/* Soft Skills */}
           <div className="space-y-6">
-            <h3 className="text-xl font-medium">{t('home.softSkills')}</h3>
-            
+            <h3 className="text-xl font-medium">Soft Skills</h3>
             <div className="space-y-6">
               <div className="rounded-lg border p-4">
                 <h4 className="font-medium">{t('home.leadership')}</h4>
@@ -147,7 +147,6 @@ export default function Home() {
                   ))}
                 </ul>
               </div>
-
               <div className="rounded-lg border p-4">
                 <h4 className="font-medium">{t('home.strategicThinking')}</h4>
                 <ul className="mt-2 space-y-1 text-sm text-muted-foreground">
@@ -156,7 +155,6 @@ export default function Home() {
                   ))}
                 </ul>
               </div>
-
               <div className="rounded-lg border p-4">
                 <h4 className="font-medium">{t('home.agileExecution')}</h4>
                 <ul className="mt-2 space-y-1 text-sm text-muted-foreground">
@@ -174,10 +172,10 @@ export default function Home() {
       <section id="articles" className="scroll-mt-16">
         <h2 className="mb-8 text-2xl font-semibold">{t('home.articlesResearch')}</h2>
         <div className="grid gap-6 md:grid-cols-2">
-          <div className="group rounded-lg border p-6 transition-colors hover:border-foreground">
+          <Link href="/projects/wind-turbine-fault-prediction" className="group rounded-lg border p-6 transition-colors hover:border-foreground">
             <h3 className="font-semibold">{t('home.thesisResearch')}</h3>
             <p className="mt-2 text-sm text-muted-foreground">{t('home.comingSoon')}</p>
-          </div>
+          </Link>
 
           <div className="group rounded-lg border p-6 transition-colors hover:border-foreground">
             <h3 className="font-semibold">{t('home.technicalArticles')}</h3>
