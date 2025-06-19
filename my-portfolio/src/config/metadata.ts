@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 
-const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://kauedelazzeri.com";
+const baseUrl =
+  process.env.NEXT_PUBLIC_BASE_URL || "https://kauedelazzeri.com";
 
 export const siteConfig = {
   name: "Kaue Delazzeri",
   description: "Product Manager with 4 years of experience in electric mobility, platform architecture, and online payments — focused on growth and data-driven strategy.",
   url: baseUrl,
-  ogImage: `${baseUrl}/og.jpg`,
+  ogImage: `${baseUrl}/images/profile-photo.jpg`,
 } as const;
 
 export const defaultMetadata: Metadata = {
