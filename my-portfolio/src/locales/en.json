@@ -96,6 +96,10 @@
     "title": "Projects",
     "description": "Detailed analysis of product, research, and development projects, focusing on results and technical decisions."
   },
+  "articlesGrid": {
+    "title": "Articles",
+    "description": "Technical articles and analytics guides focused on product development."
+  },
   "projectPage": {
     "role": "Role",
     "duration": "Duration",
@@ -105,6 +109,11 @@
     "results": "Results",
     "stack": "Technologies",
     "other": "More Projects"
+  },
+  "articleNotFound": {
+    "title": "Article Not Found",
+    "description": "Sorry, we couldn't find the requested article.",
+    "viewAll": "View All Articles"
   },
   "article": {
     "date": "Date",

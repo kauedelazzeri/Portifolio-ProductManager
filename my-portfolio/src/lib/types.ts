@@ -7,6 +7,7 @@ export type Article = {
   date: string;
   author: string;
   tags: string[];
+  coverImage: string;
   content: MDXRemoteSerializeResult;
 };
 
