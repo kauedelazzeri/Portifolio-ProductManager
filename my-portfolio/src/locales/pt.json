@@ -96,10 +96,19 @@
     "title": "Projetos",
     "description": "Análise detalhada de projetos de produto, pesquisa e desenvolvimento, com foco em resultados e decisões técnicas."
   },
+  "articlesGrid": {
+    "title": "Artigos",
+    "description": "Artigos técnicos e guias de analytics focados em desenvolvimento de produto."
+  },
   "notFound": {
     "title": "Projeto Não Encontrado",
     "description": "Desculpe, não conseguimos encontrar o projeto procurado.",
     "viewAll": "Ver Todos os Projetos"
+  },
+  "articleNotFound": {
+    "title": "Artigo Não Encontrado",
+    "description": "Desculpe, não conseguimos encontrar o artigo procurado.",
+    "viewAll": "Ver Todos os Artigos"
   },
   "projectPage": {
     "role": "Papel",

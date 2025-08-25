@@ -36,6 +36,7 @@ export async function getArticleBySlug(slug: string, locale: string): Promise<Ar
       date: data.date,
       author: data.author,
       tags: data.tags,
+      coverImage: data.coverImage,
       content: mdxSource,
     };
 
@@ -61,7 +62,9 @@ export async function getAllArticles(locale: string): Promise<Article[]> {
 
     const articles = await Promise.all(articlePromises);
 
-    return articles.filter((article): article is Article => article !== null);
+    return articles
+      .filter((article): article is Article => article !== null)
+      .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
   } catch (error) {
     console.error(`Error loading articles in ${locale}:`, error);
     return [];
