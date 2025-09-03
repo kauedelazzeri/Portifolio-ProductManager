@@ -29,7 +29,7 @@
         "MLOps",
         "Data Engineering"
       ],
-      "image": "/images/projects/wind-turbine.svg",
+      "image": "/images/projects/wind-turbine-fault-prediction/icon.png",
       "repoLink": "https://github.com/kauedelazzeri/Wind-Turbine-Fault-Prediction",
       "featured": true
     },
@@ -62,7 +62,7 @@
         "CNN",
         "MLOps"
       ],
-      "image": "/images/projects/movie-genre.svg",
+      "image": "/images/projects/movie-genre-prediction/icon.png",
       "repoLink": "https://github.com/kauedelazzeri/movie-genre-prediction",
       "featured": true
     },
@@ -95,7 +95,7 @@
         "Redis",
         "Product Management"
       ],
-      "image": "/images/projects/aposta-facil.svg",
+      "image": "/images/projects/aposta-facil/icon.svg",
       "featured": true
     }
   ]

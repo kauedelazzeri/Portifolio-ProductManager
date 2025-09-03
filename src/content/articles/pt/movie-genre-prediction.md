@@ -131,7 +131,7 @@ A matriz de confusão da VGG16:
 ![Matriz de confusão da VGG16](/images/articles/movie-genre-prediction/vgg_conf_matrix.png)
 
 * **Performance**: 85% acurácia global, F1 ≥ 0.82 por gênero
-* **Tempo de Inferência**: < 100ms por imagem
+* **Tempo de Inferência**: Menos de 100ms por imagem
 * **Interpretabilidade**: Visualização de camadas convolucionais
 * **Aplicabilidade**: API REST para classificação em tempo real
 

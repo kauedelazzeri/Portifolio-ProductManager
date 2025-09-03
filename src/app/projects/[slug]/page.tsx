@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import { getProjectBySlug, getOtherProjects } from "@/lib/projects";
-import { getArticleBySlug } from "@/lib/articles";
+import { getProjectContentBySlug } from "@/lib/project-content";
 import { cookies } from 'next/headers';
 import { MarkdownContent } from "@/components/markdown-content";
 import Image from "next/image";
@@ -38,7 +38,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
     notFound();
   }
 
-  const articleContent = await getArticleBySlug(params.slug, lang);
+  const articleContent = await getProjectContentBySlug(params.slug, lang);
 
   if (!articleContent) {
     notFound();
