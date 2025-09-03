@@ -1,5 +1,5 @@
 {
-  "cases": [
+  "projects": [
     {
       "slug": "wind-turbine-fault-prediction",
       "title": "Wind Turbine Fault Prediction with SVM, PCA and LDA",
@@ -27,11 +27,11 @@
         "SVM",
         "PCA/LDA",
         "MLOps",
-        "Engenharia de Dados"
+        "Data Engineering"
       ],
-      "image": "/images/articles/wind-turbine/icon.png",
+      "image": "/images/projects/wind-turbine.svg",
       "repoLink": "https://github.com/kauedelazzeri/Wind-Turbine-Fault-Prediction",
-      "articleLink": "/articles/wind-turbine-fault-prediction"
+      "featured": true
     },
     {
       "slug": "movie-genre-prediction",
@@ -62,9 +62,41 @@
         "CNN",
         "MLOps"
       ],
-      "image": "/images/articles/movie-genre-prediction/icon.png",
+      "image": "/images/projects/movie-genre.svg",
       "repoLink": "https://github.com/kauedelazzeri/movie-genre-prediction",
-      "articleLink": "/articles/movie-genre-prediction"
+      "featured": true
+    },
+    {
+      "slug": "aposta-facil",
+      "title": "MVP Social Betting Platform",
+      "summary": "A social betting platform focused on user engagement and retention through gamification and social features.",
+      "role": "Product Manager",
+      "duration": "2023-2024",
+      "context": "Development of a social betting platform that combines traditional sports betting with social media elements to increase user engagement and lifetime value.",
+      "challenge": "Create a betting platform that stands out in a competitive market by focusing on social interaction and user experience rather than just odds and payouts.",
+      "decisions": [
+        "Implementation of social features like friend challenges and leaderboards",
+        "Gamification system with points, badges, and levels",
+        "Real-time chat and comment system for events",
+        "Mobile-first responsive design approach"
+      ],
+      "results": [
+        "30% increase in user retention compared to traditional platforms",
+        "Average session time of 45 minutes",
+        "User acquisition cost reduced by 25% through referral system",
+        "90% mobile usage adoption rate"
+      ],
+      "stack": [
+        "React Native",
+        "Node.js",
+        "PostgreSQL",
+        "AWS",
+        "WebSocket",
+        "Redis",
+        "Product Management"
+      ],
+      "image": "/images/projects/aposta-facil.svg",
+      "featured": true
     }
   ]
 }

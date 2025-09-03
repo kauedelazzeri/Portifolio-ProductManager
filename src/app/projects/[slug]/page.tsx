@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { getCaseBySlug, getOtherCases } from "@/lib/cases";
+import { getProjectBySlug, getOtherProjects } from "@/lib/projects";
 import { getArticleBySlug } from "@/lib/articles";
 import { cookies } from 'next/headers';
 import { MarkdownContent } from "@/components/markdown-content";
@@ -32,7 +32,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
     return typeof current === 'string' ? current : key;
   };
 
-  const project = getCaseBySlug(params.slug);
+  const project = getProjectBySlug(params.slug);
 
   if (!project) {
     notFound();
@@ -44,7 +44,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
     notFound();
   }
 
-  const otherProjects = getOtherCases(params.slug);
+  const otherProjects = getOtherProjects(params.slug);
 
   return (
     <article className="animate-fade-in max-w-4xl mx-auto">

@@ -3,11 +3,12 @@
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { cn } from "@/lib/utils";
-import { ThemeSwitch } from "./theme-switch";
+import { ThemeSwitch } from "../common/theme-switch";
 import { useTranslation } from "@/context/i18n";
-import { LanguageSwitch } from "./language-switch";
+import { LanguageSwitch } from "../common/language-switch";
 import { useState } from "react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import { SITE_CONFIG } from "@/constants/site";
 
 
 export default function Header() {
@@ -50,7 +51,7 @@ export default function Header() {
       <div className="container flex h-16 items-center justify-between">
         <div className="mr-8 flex-1">
           <Link href="/" className="text-xl font-bold hover:text-primary transition-colors">
-            Kaue Delazzeri
+            {SITE_CONFIG.name}
           </Link>
         </div>
         <nav className="hidden flex-1 items-center justify-between md:flex">

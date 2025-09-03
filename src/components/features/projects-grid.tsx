@@ -2,12 +2,12 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import type { Case } from "@/lib/cases";
+import type { Project } from "@/lib/types";
 import { cn } from "@/lib/utils";
 import { useTranslation } from "@/context/i18n";
 
 interface ProjectsGridProps {
-  projects: Case[];
+  projects: Project[];
 }
 
 export function ProjectsGrid({ projects }: ProjectsGridProps) {
