@@ -1,129 +1,177 @@
-# Arquitetura do Projeto - Portfolio
+# Project Architecture - Portfolio
 
-## 📁 Estrutura Organizada
+## 📁 Organized Structure
 
-O projeto foi reorganizado seguindo as melhores práticas de desenvolvimento React/Next.js:
+This project follows React/Next.js best practices with a clean, scalable architecture:
 
-### 🎯 Diretórios Principais
+### 🎯 Main Directories
 
 ```
 src/
 ├── app/                    # App Router (Next.js 13+)
-│   ├── layout.tsx         # Layout raiz
-│   ├── page.tsx           # Página inicial
-│   ├── projects/          # Seção de projetos
-│   └── globals.css        # Estilos globais
+│   ├── layout.tsx         # Root layout
+│   ├── page.tsx           # Home page
+│   ├── projects/          # Projects section
+│   │   ├── page.tsx      # Projects listing
+│   │   ├── [slug]/       # Dynamic project pages
+│   │   ├── loading.tsx   # Loading UI
+│   │   └── not-found.tsx # 404 page
+│   ├── contact/          # Contact page
+│   ├── skills/           # Skills page
+│   └── globals.css       # Global styles
 │
-├── components/            # Componentes organizados por função
-│   ├── layout/           # Componentes de layout
-│   │   └── Header.tsx    # Cabeçalho navegação
-│   ├── features/         # Componentes de funcionalidades
+├── components/            # Components organized by function
+│   ├── layout/           # Layout components
+│   │   └── Header.tsx    # Navigation header
+│   ├── features/         # Feature-specific components
 │   │   ├── projects-grid.tsx
 │   │   └── skill-card.tsx
-│   ├── common/           # Componentes reutilizáveis
+│   ├── common/           # Reusable components
 │   │   ├── theme-provider.tsx
 │   │   ├── theme-switch.tsx
 │   │   └── language-switch.tsx
-│   ├── ui/               # Componentes de UI básicos
-│   └── index.ts          # Arquivo de exportação central
+│   ├── ui/               # Basic UI components
+│   └── index.ts          # Central export file
 │
-├── lib/                  # Utilitários e helpers
-│   ├── types.ts          # Definições de tipos TypeScript
-│   ├── projects.ts       # Funções para gerenciar projetos
-│   ├── articles.ts       # Funções para gerenciar artigos
-│   ├── utils.ts          # Utilitários gerais
-│   └── index.ts          # Exportações centralizadas
-│
-├── data/                 # Dados estruturados
-│   └── projects.json     # Banco de dados dos projetos
-│
-├── content/              # Conteúdo em Markdown
-│   └── articles/         # Artigos por idioma
+├── content/              # Content management
+│   ├── articles/         # Technical articles by language
+│   │   ├── en/
+│   │   └── pt/
+│   └── projects/        # Project documentation by language
 │       ├── en/
 │       └── pt/
 │
-├── constants/            # Constantes da aplicação
-│   └── site.ts           # Configurações do site
+├── data/                 # Structured data
+│   └── projects.json     # Project metadata database
 │
-├── config/               # Configurações
-│   ├── metadata.ts       # Metadados SEO
-│   └── favicons.ts       # Configuração de ícones
+├── lib/                  # Utilities and helpers
+│   ├── types.ts          # TypeScript type definitions
+│   ├── projects.ts       # Project management functions
+│   ├── articles.ts       # Article management functions
+│   ├── project-content.ts # Multilingual content loader
+│   ├── utils.ts          # General utilities
+│   └── index.ts          # Centralized exports
 │
-└── locales/              # Traduções
-    ├── en.json
-    └── pt.json
+├── locales/              # Interface translations
+│   ├── en.json           # English translations
+│   └── pt.json           # Portuguese translations
+│
+├── context/              # React contexts
+│   └── i18n.tsx          # Internationalization context
+│
+├── constants/            # Application constants
+│   └── site.ts           # Site configuration
+│
+└── config/               # Configuration files
+    ├── metadata.ts       # SEO metadata
+    └── favicons.ts       # Icon configuration
 ```
 
-## 🏗️ Padrões Implementados
+## 🏗️ Implemented Patterns
 
-### 1. **Separação Clara de Responsabilidades**
-- `components/layout/`: Componentes estruturais
-- `components/features/`: Componentes de funcionalidades específicas  
-- `components/common/`: Componentes reutilizáveis em todo o app
-- `components/ui/`: Componentes básicos de interface
+### 1. **Clear Separation of Concerns**
+- `components/layout/`: Structural components
+- `components/features/`: Feature-specific components  
+- `components/common/`: Reusable components across the app
+- `components/ui/`: Basic interface components
 
-### 2. **Gerenciamento de Dados Tipado**
-- Tipos TypeScript centralizados em `lib/types.ts`
-- Funções específicas para cada domínio (`projects.ts`, `articles.ts`)
-- Validação de tipos em tempo de compilação
+### 2. **Typed Data Management**
+- Centralized TypeScript types in `lib/types.ts`
+- Domain-specific functions (`projects.ts`, `articles.ts`, `project-content.ts`)
+- Compile-time type validation
 
-### 3. **Configuração Centralizada**
-- Constantes do site em `constants/site.ts`
-- Metadados SEO organizados
-- Configurações de build otimizadas
+### 3. **Multilingual Content System**
+- File-based content organization by locale
+- Intelligent fallback system (English as fallback)
+- Separate translation layers for UI and content
 
-### 4. **Estrutura de Importação Limpa**
+### 4. **Centralized Configuration**
+- Site constants in `constants/site.ts`
+- Organized SEO metadata
+- Optimized build configurations
+
+### 5. **Clean Import Structure**
 ```typescript
-// ✅ Bem organizado
+// ✅ Well organized
 import { Project, Article } from '@/lib/types';
 import { ProjectsGrid, Header } from '@/components';
 import { SITE_CONFIG } from '@/constants/site';
 
-// ❌ Evitado
+// ❌ Avoided
 import { Project } from '../../../lib/types';
 import ProjectsGrid from '../../../components/projects-grid';
 ```
 
-## 🔄 Como Expandir
+## 🔄 How to Expand
 
-### Adicionar Novos Projetos
-1. Edite `src/data/projects.json`
-2. Adicione imagens em `public/images/projects/`
-3. O sistema carregará automaticamente
+### Adding New Projects
+1. Edit `src/data/projects.json` with project metadata
+2. Add project images to `public/images/projects/project-slug/`
+3. Create content files: `src/content/projects/en/project-slug.md` and `src/content/projects/pt/project-slug.md`
+4. The system will automatically load and route the project
 
-### Adicionar Novos Artigos
-1. Crie arquivo `.md` em `src/content/articles/[lang]/`
-2. Use frontmatter para metadados
-3. Adicione imagens em `public/images/articles/`
+### Adding New Articles
+1. Create `.md` file in `src/content/articles/[lang]/article-slug.md`
+2. Use frontmatter for metadata
+3. Add images to `public/images/articles/article-slug/`
+4. Update article management functions if needed
 
-### Adicionar Novos Componentes
-1. Determine a categoria: `layout`, `features`, `common`, ou `ui`
-2. Crie o componente na pasta apropriada
-3. Exporte em `components/index.ts`
+### Adding New Components
+1. Determine category: `layout`, `features`, `common`, or `ui`
+2. Create component in appropriate folder
+3. Export in `components/index.ts`
 
-## 🚀 Scripts Disponíveis
+### Adding New Translations
+1. Update interface translations in `src/locales/[locale].json`
+2. Create content files in both languages
+3. Use translation context in components: `const { t } = useTranslation();`
+
+## 🌐 Internationalization Architecture
+
+### Two-Layer Translation System
+
+1. **Interface Layer**: Button texts, navigation, labels
+   - Files: `src/locales/{locale}.json`
+   - Usage: `t('header.home')`
+
+2. **Content Layer**: Articles, project descriptions
+   - Files: `src/content/*/{locale}/`
+   - Intelligent fallback to English if content missing
+
+### Locale Management
+- Cookie-based locale storage
+- URL-agnostic (single domain for both languages)
+- Server-side locale detection
+- Client-side locale switching
+
+## 🚀 Available Scripts
 
 ```bash
-npm run dev      # Desenvolvimento
-npm run build    # Build de produção
-npm run start    # Servidor de produção
-npm run lint     # Linting
+npm run dev      # Development server
+npm run build    # Production build
+npm run start    # Production server
+npm run lint     # ESLint check
+npm run type-check # TypeScript validation
 ```
 
-## 📦 Tecnologias
+## 📦 Technologies
 
 - **Framework**: Next.js 13+ (App Router)
-- **Styling**: Tailwind CSS
-- **TypeScript**: Tipagem completa
-- **Content**: MDX para artigos
-- **Deployment**: Vercel
-- **Analytics**: PostHog
+- **Styling**: Tailwind CSS with custom design system
+- **TypeScript**: Complete type coverage
+- **Content**: MDX for articles and documentation
+- **Internationalization**: Custom i18n system
+- **Theme**: next-themes for dark/light mode
+- **Deployment**: Vercel with custom domain
+- **Analytics**: PostHog for user behavior tracking
 
-## 🎯 Benefícios da Reorganização
+## 🎯 Benefits of This Architecture
 
-1. **Manutenibilidade**: Código organizado e fácil de encontrar
-2. **Escalabilidade**: Estrutura preparada para crescimento
-3. **Developer Experience**: Importações limpas e autocomplete
-4. **Performance**: Build otimizado e code splitting
-5. **SEO**: Metadados bem estruturados
-6. **Acessibilidade**: Componentes semânticos
+1. **Maintainability**: Organized code, easy to find and modify
+2. **Scalability**: Structure ready for growth and new features
+3. **Developer Experience**: Clean imports and excellent autocomplete
+4. **Performance**: Optimized builds and automatic code splitting
+5. **SEO**: Well-structured metadata and semantic HTML
+6. **Accessibility**: Semantic components and proper ARIA labels
+7. **Internationalization**: Seamless multilingual support
+8. **Content Management**: Easy to add and update content

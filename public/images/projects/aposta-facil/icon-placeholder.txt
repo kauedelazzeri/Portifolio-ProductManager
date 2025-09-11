@@ -1,0 +1,19 @@
+# PLACEHOLDER FOR APOSTA-FACIL PROJECT ICON
+
+This is a placeholder file. Please replace this with a proper PNG image (300x300px) for the Aposta Fácil project.
+
+The image should represent:
+- Social betting platform
+- Mobile-first design
+- Gamification elements
+- Community features
+
+Suggested design elements:
+- Smartphone with betting interface
+- Social connectivity icons
+- Trophy/achievement symbols
+- Modern gradient colors (purple/blue theme)
+- Cards or betting symbols
+
+Once you have the proper PNG image, replace this file:
+public/images/projects/aposta-facil/icon.png
