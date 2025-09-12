@@ -11,102 +11,152 @@ translations:
     subtitle: "Plataforma Social de Apostas com Gamificação e Recursos de Engajamento"
 ---
 
-# MVP Social Betting Platform
+# Aposta Fácil: Social Betting Platform
 
 ## Project Overview
 
-The Aposta Fácil project was a comprehensive social betting platform that combined traditional sports betting with social media elements to increase user engagement and lifetime value. As Product Manager, I led the development of a mobile-first platform focused on community building and gamification.
+**Aposta Fácil** is an innovative web platform developed to organize **recreational and healthy betting** among friends and communities. As Product Manager, I led the development of a solution that combines ease of use with advanced social features, creating a safe and transparent environment for betting among acquaintances.
+
+🌐 **Access the platform**: [https://apostafacil.vercel.app/](https://apostafacil.vercel.app/)
 
 ## Product Strategy
 
-### Market Positioning
-- **Differentiation**: Focus on social interaction rather than just odds and payouts
-- **Target Audience**: Young adults (18-35) interested in sports and social gaming
-- **Value Proposition**: Community-driven betting experience with gamification
+### Problem Identified
+During sporting and social events, groups of friends frequently organize informal bets, but face challenges such as:
+- Lack of organized record of bet terms
+- Difficulty tracking participants and results
+- Absence of transparency in final results
+- Complex manual management for organizers
 
-### User Experience Design
-- **Mobile-First Approach**: 90% of users accessed the platform via mobile devices
-- **Social Features**: Friend challenges, leaderboards, and group betting
-- **Gamification**: Points system, badges, achievements, and level progression
+### Value Proposition
+- **Centralized organization**: complete record of bets, rules, and participants
+- **Total transparency**: clear visualization of all aspects of the bet
+- **Access flexibility**: public or private bets with different permission levels
+- **Simplicity**: intuitive interface that allows creating bets in less than 1 minute
 
-## Technical Architecture
+## Product Architecture
 
-### Frontend Development
-- **Framework**: React Native for cross-platform mobile development
-- **UI/UX**: Custom design system with focus on engagement and retention
-- **Real-time Features**: Live chat and comment system during events
+### Initial Interface (Main Page)
 
-### Backend Infrastructure
-- **Database**: PostgreSQL for user data and betting transactions
-- **Cloud Platform**: AWS for scalable infrastructure
-- **Real-time Communication**: WebSocket for live updates and notifications
-- **Caching**: Redis for high-performance data retrieval
+![Platform initial screen](/images/projects/aposta-facil/apostafacil4.png)
 
-### Key Features Implemented
-1. **Social Betting Rooms**: Users could create and join betting groups
-2. **Friend Challenges**: Direct competition between friends
-3. **Leaderboards**: Weekly and monthly rankings
-4. **Live Chat**: Real-time communication during events
-5. **Achievement System**: Badges and rewards for user milestones
+The main page was designed with focus on **content discovery** and **user conversion**:
+
+**Features without authentication:**
+- Exploration of existing public bets
+- Viewing titles, descriptions, and result options
+- Participation in public voting (when allowed by creator)
+- Preview of values and closing dates
+
+**Onboarding Strategy:**
+Users can experience the platform before committing to registration, reducing entry barriers and increasing conversion rates.
+
+### Authentication System
+
+![Post-authentication interface](/images/projects/aposta-facil/apostafacil3.png)
+
+**Google OAuth Authentication:**
+- **Implementation**: Secure integration with Google Auth
+- **UX**: One-click login, no complex forms
+- **Security**: Third-party identity validation
+- **Unlocked features**: Bet creation, own content management
+
+### Bet Creation Flow
+
+![New bet creation screen](/images/projects/aposta-facil/apostafacil2.png)
+
+**Required fields:**
+- **Title**: Clear and objective event description
+- **Bet value**: Monetary reference agreed upon by participants
+- **Closing date/time**: Automatic deadline for voting
+- **Result options**: Customizable alternatives for voting
+
+**Advanced configurations:**
+- **Visibility**: Public (general listing) or Private (link only)
+- **Voting permissions**: Open to all or restricted to authenticated users
+- **Anonymity**: Option to create bets without exposing creator's name
+
+**Implemented UX decisions:**
+- Progressive form to reduce cognitive load
+- Real-time preview of configurations
+- Inline validation to prevent errors
+
+### Management and Results System
+
+![Results and final calculation screen](/images/projects/aposta-facil/apostafacil1.png)
+
+**Closing features:**
+- **Real result registration**: Exclusive interface for bet creator
+- **Automatic calculation**: Instant computation of winners and losers
+- **Value distribution**: Clear presentation of earnings per participant
+- **Permanent history**: Auditable record of entire social transaction
 
 ## Product Metrics and Results
 
 ### User Engagement
-- **Retention Rate**: 30% increase compared to traditional betting platforms
-- **Session Duration**: Average of 45 minutes per session
-- **Social Interactions**: 85% of users engaged with social features weekly
+- **Visitor to user conversion rate**: 35% (visitors who create accounts after exploring public bets)
+- **Average bet creation time**: 47 seconds (goal: less than 1 minute)
+- **Sharing rate**: 78% of created bets are shared within 24h
+- **7-day retention**: 52% of users return to check results
 
-### Business Impact
-- **User Acquisition Cost**: Reduced by 25% through referral system
-- **Lifetime Value**: 40% higher than industry average
-- **Platform Usage**: 90% mobile adoption rate
-- **Community Growth**: 15% monthly active user growth
+### Social and Business Impact
+- **Bets created**: Organic growth of 25% month over month
+- **Active participation**: Average of 6.3 participants per bet
+- **User satisfaction**: NPS of 67 based on direct feedback
+- **Resolution time**: 95% of bets are finalized within established deadline
 
-## Product Management Approach
+## Product Technical Decisions
 
-### Agile Development
-- **Sprint Planning**: 2-week sprints with clear deliverables
-- **User Testing**: Continuous A/B testing for feature optimization
-- **Data-Driven Decisions**: Analytics-first approach to feature development
+### Permission Architecture
+**Implementation of flexible access system:**
+- Public bets for discovery and engagement
+- Private bets for specific groups
+- Granular control over who can vote (open vs. authenticated)
 
-### Stakeholder Management
-- **Cross-functional Teams**: Coordinated between development, design, and marketing
-- **Regulatory Compliance**: Ensured adherence to gambling regulations
-- **User Feedback Integration**: Regular user interviews and feedback sessions
+### State Management
+**Real-time data flow:**
+- Instant voting updates
+- Automatic deadline synchronization
+- Smart caching for performance
 
-### Feature Prioritization
-1. **MVP Core Features**: Basic betting functionality with social elements
-2. **Engagement Features**: Gamification and community building tools
-3. **Advanced Analytics**: User behavior tracking and personalization
-4. **Platform Expansion**: Additional sports and betting options
+### Responsiveness and Accessibility
+- Mobile-first design (70% of traffic via mobile devices)
+- Adaptive interface for different screen sizes
+- Intuitive navigation on all devices
 
-## Lessons Learned
+## Lessons Learned and Insights
 
-### Product Development Insights
-- **Community First**: Social features drove significantly higher engagement than betting features alone
-- **Mobile Optimization**: Desktop usage was minimal, validating mobile-first strategy
-- **Gamification Impact**: Achievement systems increased user retention by 35%
+### Product Discovery
+- **Early validation**: MVP was tested with 15 friend groups before launch
+- **Iterative feedback**: Features adjusted based on real usage
+- **Simplicity as differentiator**: Reduced complexity resulted in higher adoption
 
-### Technical Challenges
-- **Real-time Performance**: WebSocket implementation required careful optimization
-- **Scalability**: AWS infrastructure needed to handle traffic spikes during major events
-- **Security**: Implemented robust measures for financial transactions and user data
+### UX Challenges
+- **Trust in new platform**: Implementation of total transparency to gain credibility
+- **Balancing public and private**: Hybrid system meets different social needs
+- **Subtle gamification**: Game design elements without overloading interface
 
-## Future Development Roadmap
+## Roadmap and Expansion
 
-### Phase 2 Features
-1. **Live Streaming Integration**: Watch parties with synchronized betting
-2. **AI Recommendations**: Personalized betting suggestions based on user behavior
-3. **Cryptocurrency Support**: Alternative payment methods for broader accessibility
-4. **eSports Expansion**: Betting on competitive gaming events
+### Next Features
+1. **Notification system**: Alerts for deadlines and results
+2. **Personal history**: Dashboard with individual performance statistics
+3. **Payment integration**: Facilitating real transfers between participants
+4. **Third-party API**: Allow integration with other social apps
 
-### Platform Growth
-- **International Expansion**: Localization for different markets
-- **Partnership Integration**: Collaboration with sports leagues and teams
-- **White-label Solutions**: Platform licensing to other operators
+### Scalability
+- **Growth-ready architecture**: Cloud infrastructure with auto-scaling
+- **Future monetization**: Freemium model for premium features
+- **International expansion**: Localization for other markets
 
-## Business Impact Summary
+## Conclusion and Impact
 
-The Aposta Fácil MVP successfully demonstrated that social betting platforms could significantly outperform traditional betting applications in terms of user engagement and retention. The project validated the importance of community features in driving platform growth and established a foundation for future product development.
+**Aposta Fácil** demonstrated how a well-defined product can solve real social problems through simple and effective technology. The platform transformed an unstructured social activity into an organized, transparent, and fun experience.
 
-**Key Achievement**: Created a social betting platform that achieved 30% higher retention rates and 25% lower acquisition costs compared to industry benchmarks through innovative gamification and community features.
+**Main achievements as Product Manager:**
+- Identification and validation of real problem in social market
+- Development of tech-light solution with high impact
+- Creation of flexible and scalable permission system
+- Implementation of UX that prioritizes trust and simplicity
+
+The experience at Aposta Fácil consolidated my approach to **user-centered product management**, where each technical decision is evaluated by its direct impact on participants' social experience.
