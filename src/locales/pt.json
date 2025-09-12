@@ -14,87 +14,87 @@
     "contact": "Contato"
   },
   "home": {
-    "title": "Kaue Delazzeri",
-    "subtitle": "Gerente de Produto & Pesquisador",
-    "description": "Gerente de Produto com 4 anos de experiência em mobilidade elétrica, arquitetura de plataforma e pagamentos online — focado em crescimento e estratégia orientada a dados.",
-    "heroTitle": "Product Manager com expertise em mobilidade elétrica e plataformas digitais",
-    "heroSubtitle": "Construindo plataformas baseadas em dados para impacto escalável.",
+    "title": "Kauê Delazzeri",
+    "subtitle": "Gerente de Produto Técnico (TPM)",
+    "description": "Gerente de Produto Técnico com experiência em mobilidade elétrica, plataformas SaaS e pagamentos online — focado em resultados mensuráveis, arquitetura escalável e decisões orientadas por dados.",
+    "heroTitle": "Gerente de Produto Técnico",
+    "heroSubtitle": "Projeto produtos orientados a dados para impacto, eficiência e escala.",
     "heroBullets": [
-      "4+ anos de experiência como Product Manager",
-      "Especializado em mobilidade elétrica e plataformas digitais",
-      "Focado em crescimento, decisões orientadas a dados e planejamento estratégico"
+      "4+ anos liderando produto em EV Charging e plataformas digitais",
+      "Pagamento (Stripe e outros gateways), Cloud (AWS, GCP e Oracle)",
+      "Experimentação e métricas: PostHog, funil AARRR, testes A/B, KPIs de produto",
+      "Forte colaboração técnica: APIs, arquitetura, trade-offs e discovery com engenharia/design"
     ],
     "viewProjects": "Ver Projetos",
     "contactMe": "Contate-me",
-    "projects": "Projetos em Destaque",
-    "projectsDescription": "Explore uma seleção de projetos que demonstram minha experiência em gestão de produtos, pesquisa e desenvolvimento.",
+    "projects": "Casos em Destaque",
+    "projectsDescription": "Seleção de casos com foco em problema → abordagem técnica → impacto (métricas e aprendizados).",
     "viewAllProjects": "Ver todos os projetos",
-    "windTurbineProject": "Predição de Falhas em Aerogeradores",
-    "windTurbineDescription": "Análise técnico-negocial de um pipeline de IA aplicado ao setor eólico para detecção precoce de falhas usando apenas assinaturas de corrente.",
-    "movieGenreProject": "Predição de Gênero de Filmes",
-    "movieGenreDescription": "Análise de classificação de gêneros cinematográficos usando redes neurais convolucionais e transfer learning para identificar padrões visuais em cartazes de filmes.",
-    "technicalSkills": "Minhas Habilidades Técnicas",
-    "skillsDescription": "Uma visão abrangente das minhas competências técnicas e ferramentas que utilizo no dia a dia.",
-    "dataAnalytics": "📊 Análise de Dados",
+    "windTurbineProject": "Detecção de Falhas em Aerogeradores (case técnico)",
+    "windTurbineDescription": "Exploração técnico‑negocial de um pipeline de IA para detecção precoce de falhas via assinaturas de corrente; ênfase em hipóteses, custo/benefício e valor para o negócio.",
+    "movieGenreProject": "Classificação de Gênero de Filmes (visão computacional)",
+    "movieGenreDescription": "Estudo de CV com CNN e transfer learning para identificar padrões visuais em cartazes; aprendizados aplicáveis a discovery de soluções com IA.",
+    "technicalSkills": "Competências Técnicas & de Produto",
+    "skillsDescription": "Principais competências que uso para conectar estratégia, técnica e execução.",
+    "dataAnalytics": "📊 Métricas & Experimentação",
     "dataAnalyticsList": [
-      "Visualização de Dados (AWS QuickSight)",
-      "Teste A/B e Experimentação",
-      "SQL (Redshift, PostgreSQL, MySQL)"
+      "Dashboards e instrumentação (AWS QuickSight, PostHog)",
+      "Testes A/B e desenho de experimentos",
+      "SQL (PostgreSQL, Redshift, MySQL)"
     ],
-    "infrastructure": "☁️ Infraestrutura de Plataforma",
+    "infrastructure": "☁️ Plataforma & Arquitetura",
     "infrastructureList": [
-      "Arquitetura de API (REST, GraphQL)",
-      "Microsserviços e Serveless",
-      "Cloud Computing (AWS, Azure)"
+      "Arquitetura de APIs (REST/Websocket)",
+      "Microsserviços e Serverless",
+      "Cloud (AWS, GCP, Oracle)"
     ],
-    "aiAutomation": "🤖 IA e Automação",
+    "aiAutomation": "🤖 IA aplicada ao Produto",
     "aiAutomationList": [
-      "LLM-integrated Prototypes",
-      "Automação de Processos",
-      "MVP com IA"
+      "Protótipos com LLM",
+      "Automação de processos e copilots internos",
+      "MVPs com IA focados em valor"
     ],
-    "productTools": "🛠️ Ferramentas e Frameworks de Produto",
+    "productTools": "🛠️ Frameworks & Operação de Produto",
     "productToolsList": [
-      "Planejamento de Roadmap (Jira Advanced Roadmaps, Productboard)",
-      "OKRs e Estruturação de KPIs",
-      "Wireframing de UX (Figma, Miro)",
-      "Frameworks de Descoberta (Opportunity Tree, Double Diamond)"
+      "Roadmap e priorização (RICE/ICE, Opportunity Solution Tree)",
+      "OKRs e KPIs de negócio/produto",
+      "UX discovery (Figma, Miro) e alinhamento cross-funcional"
     ],
     "softSkills": "Habilidades Comportamentais",
-    "leadership": "🗣️ Liderança e Comunicação",
+    "leadership": "🗣️ Liderança & Comunicação",
     "leadershipList": [
-      "Alinhamento de Equipes Cross-funcionais",
-      "Feedback e Coaching",
-      "Gestão de Stakeholders"
+      "Alinhamento com engenharia, design e negócios",
+      "Feedbacks, 1:1s e contratação",
+      "Gestão de stakeholders e escrita executiva"
     ],
     "strategicThinking": "🧠 Pensamento Estratégico",
     "strategicThinkingList": [
-      "Visão de Produto e Priorização",
-      "Análise de Mercado e Concorrência",
-      "Desenvolvimento de Estratégia de Entrada no Mercado"
+      "Visão de produto, estratégia e trade-offs",
+      "Análise de mercado/concorrência e posicionamento",
+      "Go-to-market e crescimento sustentável"
     ],
     "agileExecution": "⚡ Execução Ágil",
     "agileExecutionList": [
-      "Scrum e Kanban",
-      "Gestão de Backlog",
-      "Refinamento e Quebra de Épicos/Histórias"
+      "Scrum/Kanban e gestão de backlog",
+      "Refinamento, slicing e definição de escopo",
+      "Operação contínua com métricas e feedbacks"
     ],
-    "articlesResearch": "Artigos e Pesquisas",
+    "articlesResearch": "Conteúdo & Pesquisa",
     "thesisResearch": "Pesquisa de Graduação",
-    "thesisResearchSummary": "Minha pesquisa de conclusão de graduação, explorando soluções inovadoras para desafios do mundo real.",
-    "technicalArticlesTitle": "Artigos Técnicos",
-    "technicalArticlesDescription": "Em breve serão lançados artigos e textos técnicos sobre PM, PO, SCRUM, Gerenciamento de produtos, projetos...",
-    "technicalArticles": "Uma coleção de artigos técnicos e insights que cobrem tópicos como machine learning, desenvolvimento de produtos e estratégias de mercado.",
+    "thesisResearchSummary": "Trabalho de conclusão com foco em soluções aplicadas e avaliação de impacto.",
+    "technicalArticlesTitle": "Artigos & Talks",
+    "technicalArticlesDescription": "Notas e estudos de caso sobre EV Charging (OCPP/OCPI), Stripe Connect/Payments, métricas de produto, instrumentação com PostHog e arquitetura em AWS.",
+    "technicalArticles": "Coleção de artigos curtos e apresentações que conectam decisão de produto com fundamentos técnicos.",
     "viewAllArticles": "Ver todos os artigos",
     "windTurbineArticle": "Predição de Falhas em Aerogeradores com SVM, PCA e LDA - Análise técnico-negocial de um pipeline de IA aplicado ao setor eólico.",
-    "comingSoon": "Artigos sobre SCRUM, IA, roadmap e escritas técnicas em breve...",
-    "letsWork": "Vamos Trabalhar Juntos",
-    "lookingFor": "Procurando um Gerente de Produto que una expertise técnica e visão estratégica?",
-    "connectLinkedIn": "Conectar no LinkedIn"
+    "comingSoon": "Em breve: instrumentação end‑to‑end com PostHog, estratégia de métricas em EV Charging, e playbooks de priorização com exemplos reais.",
+    "letsWork": "Vamos construir algo?",
+    "lookingFor": "Buscando desafios como TPM/PM sênior em produtos data‑driven, com alto impacto técnico e de negócio.",
+    "connectLinkedIn": "Fale comigo no LinkedIn"
   },
   "projectsGrid": {
     "title": "Projetos",
-    "description": "Análise detalhada de projetos de produto, pesquisa e desenvolvimento, com foco em resultados e decisões técnicas."
+    "description": "Casos de produto com ênfase em problema, arquitetura/decisões e resultados mensuráveis."
   },
   "notFound": {
     "title": "Projeto Não Encontrado",
