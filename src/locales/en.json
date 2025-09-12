@@ -14,87 +14,92 @@
     "contact": "Contact"
   },
   "home": {
-    "title": "Kaue Delazzeri",
-    "subtitle": "Product Manager & Researcher",
-    "description": "Product Manager with 4 years of experience in electric mobility, platform architecture, and online payments — focused on growth and data-driven strategy.",
-    "heroTitle": "Product Manager with expertise in electric mobility and digital platforms",
-    "heroSubtitle": "Building data-powered platforms for scalable impact.",
+    "title": "Kauê Delazzeri",
+    "subtitle": "Technical Product Manager (TPM)",
+    "description": "Technical Product Manager with experience in electric mobility, SaaS platforms, and online payments — focused on measurable results, scalable architecture, and data-driven decisions.",
+    "heroTitle": "Technical Product Manager",
+    "heroSubtitle": "I design data-driven products for impact, efficiency, and scale.",
     "heroBullets": [
-      "4+ years of experience as Product Manager",
-      "Specialized in electric mobility and digital platforms",
-      "Focused on growth, data-driven decisions, and strategic planning"
+      "4+ years leading product in EV Charging and digital platforms",
+      "Payments (Stripe and other gateways), Cloud (AWS, GCP, and Oracle)",
+      "Experimentation and metrics: PostHog, AARRR funnel, A/B testing, product KPIs",
+      "Strong technical collaboration: APIs, architecture, trade-offs, and discovery with engineering/design"
     ],
     "viewProjects": "View Projects",
     "contactMe": "Contact Me",
-    "projects": "Featured Projects",
-    "projectsDescription": "Explore a selection of product, research, and development projects, showcasing my expertise in product management.",
+    "projects": "Featured Cases",
+    "projectsDescription": "Selection of cases focused on problem → technical approach → impact (metrics and learnings).",
     "viewAllProjects": "View all projects",
-    "windTurbineProject": "Wind Turbine Fault Prediction",
-    "windTurbineDescription": "Technical-business analysis of an AI pipeline for the wind sector for early fault detection using only current signatures.",
-    "movieGenreProject": "Movie Genre Prediction",
-    "movieGenreDescription": "Analysis of movie genre classification using convolutional neural networks and transfer learning to identify visual patterns in movie posters.",
-    "technicalSkills": "My Technical Skills",
-    "skillsDescription": "A comprehensive overview of my technical competencies and the tools I use daily.",
-    "dataAnalytics": "📊 Data & Analytics",
+    "windTurbineProject": "Wind Turbine Fault Detection (technical case)",
+    "windTurbineDescription": "Technical-business exploration of an AI pipeline for early fault detection via current signatures; emphasis on hypotheses, cost/benefit, and business value.",
+    "movieGenreProject": "Movie Genre Classification (computer vision)",
+    "movieGenreDescription": "CV study with CNN and transfer learning to identify visual patterns in posters; learnings applicable to AI solution discovery.",
+    "technicalSkills": "Technical & Product Competencies",
+    "skillsDescription": "Main competencies I use to connect strategy, technique, and execution.",
+    "dataAnalytics": "📊 Metrics & Experimentation",
     "dataAnalyticsList": [
-      "Data Visualization (AWS QuickSight)",
-      "A/B Testing & Experimentation",
-      "SQL (Redshift, PostgreSQL, MySQL)"
+      "Dashboards and instrumentation (AWS QuickSight, PostHog)",
+      "A/B testing and experiment design",
+      "SQL (PostgreSQL, Redshift, MySQL)"
     ],
-    "infrastructure": "☁️ Platform Infrastructure",
+    "infrastructure": "☁️ Platform & Architecture",
     "infrastructureList": [
-      "API Architecture (REST, GraphQL)",
-      "Microservices & Serverless",
-      "Cloud Computing (AWS, Azure)"
+      "API Architecture (REST/WebSocket)",
+      "Microservices and Serverless",
+      "Cloud (AWS, GCP, Oracle)"
     ],
-    "aiAutomation": "🤖 AI & Automation",
+    "aiAutomation": "🤖 AI Applied to Product",
     "aiAutomationList": [
-      "LLM-integrated Prototypes",
-      "Process Automation",
-      "AI-powered MVP"
+      "LLM Prototypes",
+      "Process automation and internal copilots",
+      "AI MVPs focused on value"
     ],
-    "productTools": "🛠️ Product Tooling & Frameworks",
+    "productTools": "🛠️ Product Frameworks & Operations",
     "productToolsList": [
-      "Roadmap Planning (Jira Advanced Roadmaps, Productboard)",
-      "OKRs & KPIs Structuring",
-      "UX Wireframing (Figma, Miro)",
-      "Discovery Frameworks (Opportunity Tree, Double Diamond)"
+      "Roadmap and prioritization (RICE/ICE, Opportunity Solution Tree)",
+      "OKRs and business/product KPIs",
+      "UX discovery (Figma, Miro) and cross-functional alignment"
     ],
-    "softSkills": "Soft Skills",
+    "softSkills": "Behavioral Skills",
     "leadership": "🗣️ Leadership & Communication",
     "leadershipList": [
-      "Cross-functional Team Alignment",
-      "Feedback & Coaching",
-      "Stakeholder Management"
+      "Alignment with engineering, design, and business",
+      "Feedback, 1:1s, and hiring",
+      "Stakeholder management and executive writing"
     ],
     "strategicThinking": "🧠 Strategic Thinking",
     "strategicThinkingList": [
-      "Product Vision & Prioritization",
-      "Market & Competitor Analysis",
-      "Go-to-Market Strategy Development"
+      "Product vision, strategy, and trade-offs",
+      "Market/competitive analysis and positioning",
+      "Go-to-market and sustainable growth"
     ],
     "agileExecution": "⚡ Agile Execution",
     "agileExecutionList": [
-      "Scrum & Kanban",
-      "Backlog Management",
-      "Epic/Story Refinement & Breakdown"
+      "Scrum/Kanban and backlog management",
+      "Refinement, slicing, and scope definition",
+      "Continuous operation with metrics and feedback"
     ],
-    "articlesResearch": "Articles & Research",
-    "thesisResearch": "Thesis Research",
-    "thesisResearchSummary": "My undergraduate thesis research, exploring innovative solutions to real-world challenges.",
-    "technicalArticlesTitle": "Technical Articles",
-    "technicalArticlesDescription": "Soon to be released technical articles and texts on PM, PO, SCRUM, Product Management, Projects...",
-    "technicalArticles": "A collection of technical articles and insights covering topics such as machine learning, product development, and market strategies.",
+    "articlesResearch": "Content & Research",
+    "thesisResearch": "Undergraduate Research",
+    "thesisResearchSummary": "Thesis work focused on applied solutions and impact evaluation.",
+    "technicalArticlesTitle": "Articles & Talks",
+    "technicalArticlesDescription": "Notes and case studies on EV Charging (OCPP/OCPI), Stripe Connect/Payments, product metrics, PostHog instrumentation, and AWS architecture.",
+    "technicalArticles": "Collection of short articles and presentations that connect product decisions with technical fundamentals.",
     "viewAllArticles": "View all articles",
-    "windTurbineArticle": "Wind Turbine Fault Prediction with SVM, PCA and LDA - Technical-business analysis of an AI pipeline for the wind sector.",
-    "comingSoon": "Articles about SCRUM, AI, roadmap, and technical writing coming soon...",
-    "letsWork": "Let's Work Together",
-    "lookingFor": "Looking for a Product Manager who combines technical expertise with strategic vision?",
-    "connectLinkedIn": "Connect on LinkedIn"
+    "windTurbineArticle": "Wind Turbine Fault Prediction with SVM, PCA and LDA - Technical-business analysis of an AI pipeline applied to the wind sector.",
+    "comingSoon": "Coming soon: end-to-end instrumentation with PostHog, metrics strategy in EV Charging, and prioritization playbooks with real examples.",
+    "letsWork": "Let's build something?",
+    "lookingFor": "Seeking challenges as Senior TPM/PM in data-driven products, with high technical and business impact.",
+    "connectLinkedIn": "Contact me on LinkedIn"
   },
   "projectsGrid": {
     "title": "Projects",
-    "description": "Detailed analysis of product, research, and development projects, focusing on results and technical decisions."
+    "description": "Product cases with emphasis on problem, architecture/decisions, and measurable results."
+  },
+  "notFound": {
+    "title": "Project Not Found",
+    "description": "Sorry, we couldn't find the project you're looking for.",
+    "viewAll": "View All Projects"
   },
   "projectPage": {
     "role": "Role",
