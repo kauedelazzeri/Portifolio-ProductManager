@@ -4,6 +4,12 @@
       "slug": "wind-turbine-fault-prediction",
       "title": "Wind Turbine Fault Prediction with SVM, PCA and LDA",
       "summary": "Technical-business analysis of an AI pipeline for the wind sector for early fault detection using only current signatures.",
+      "translations": {
+        "pt": {
+          "title": "Predição de Falhas em Aerogeradores com SVM, PCA e LDA",
+          "summary": "Análise técnico-negocial de um pipeline de IA aplicado ao setor eólico para detecção precoce de falhas usando apenas assinaturas de corrente."
+        }
+      },
       "role": "Researcher",
       "duration": "Mestrado",
       "context": "Unplanned wind turbine downtime can reach 237 h/year, directly affecting revenue and increasing maintenance costs. The proposed method uses only generator current signatures — a non-invasive approach that reduces CAPEX and OPEX — and achieves 97.6% accuracy in early fault detection.",
@@ -37,6 +43,12 @@
       "slug": "movie-genre-prediction",
       "title": "Movie Genre Prediction Based on Posters",
       "summary": "Analysis of movie genre classification using convolutional neural networks and transfer learning to identify visual patterns in movie posters.",
+      "translations": {
+        "pt": {
+          "title": "Predição de Gênero de Filmes Baseada em Cartazes",
+          "summary": "Análise de classificação de gêneros cinematográficos usando redes neurais convolucionais e transfer learning para identificar padrões visuais em cartazes de filmes."
+        }
+      },
       "role": "Researcher & Developer",
       "duration": "2024",
       "context": "Automatic movie genre classification has important applications in streaming, content recommendation, and market analysis. By using only posters — already available and standardized resources — the method reduces implementation costs and provides valuable insights into cinema's visual communication.",
@@ -70,6 +82,12 @@
       "slug": "aposta-facil",
       "title": "MVP Social Betting Platform",
       "summary": "A social betting platform focused on user engagement and retention through gamification and social features.",
+      "translations": {
+        "pt": {
+          "title": "MVP Plataforma de Apostas Sociais",
+          "summary": "Uma plataforma de apostas sociais focada no engajamento e retenção do usuário através de gamificação e recursos sociais."
+        }
+      },
       "role": "Product Manager",
       "duration": "2023-2024",
       "context": "Development of a social betting platform that combines traditional sports betting with social media elements to increase user engagement and lifetime value.",

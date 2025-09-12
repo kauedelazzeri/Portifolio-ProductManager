@@ -11,7 +11,16 @@ interface ProjectsGridProps {
 }
 
 export function ProjectsGrid({ projects }: ProjectsGridProps) {
-  const { t } = useTranslation();
+  const { t, locale } = useTranslation();
+  
+  // Helper function to get translated text for project
+  const getProjectText = (project: Project, field: 'title' | 'summary') => {
+    if (locale === 'pt' && project.translations?.pt?.[field]) {
+      return project.translations.pt[field];
+    }
+    return project[field];
+  };
+
   return (
     <>
       <div className="animate-fade-in space-y-8 mb-16">
@@ -35,7 +44,7 @@ export function ProjectsGrid({ projects }: ProjectsGridProps) {
                 {project.image ? (
                   <Image
                     src={project.image}
-                    alt={project.title}
+                    alt={getProjectText(project, 'title')}
                     width={600}
                     height={400}
                     className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
@@ -51,10 +60,10 @@ export function ProjectsGrid({ projects }: ProjectsGridProps) {
               
               <div className="p-6">
                 <h2 className="text-xl font-semibold tracking-tight group-hover:text-primary transition-colors">
-                  {project.title}
+                  {getProjectText(project, 'title')}
                 </h2>
                 <p className="mt-2 text-muted-foreground line-clamp-2">
-                  {project.summary}
+                  {getProjectText(project, 'summary')}
                 </p>
                 
                 <div className="mt-4 flex flex-wrap gap-2">

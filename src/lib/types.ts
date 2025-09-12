@@ -29,6 +29,12 @@ export type Project = {
   repoLink?: string;
   articleLink?: string;
   featured?: boolean;
+  translations?: {
+    pt?: {
+      title?: string;
+      summary?: string;
+    };
+  };
 };
 
 export type ProjectMeta = Pick<Project, 'slug' | 'title' | 'summary' | 'image' | 'stack' | 'featured'>;
