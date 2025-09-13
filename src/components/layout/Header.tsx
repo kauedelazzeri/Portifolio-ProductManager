@@ -9,6 +9,7 @@ import { LanguageSwitch } from "../common/language-switch";
 import { useState } from "react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { SITE_CONFIG } from "@/constants/site";
+import posthog from "posthog-js";
 
 
 export default function Header() {
@@ -27,6 +28,12 @@ export default function Header() {
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
 
+    // Track navigation
+    posthog.capture('navigation_click', {
+      destination: href,
+      from_page: pathname,
+      projeto: 'portifolio',
+    });
 
     if (pathname !== "/" && href.startsWith("/#")) {
       // If we're not on the home page and trying to navigate to a section
@@ -80,7 +87,15 @@ export default function Header() {
         </nav>
         <button
           className="md:hidden rounded-lg p-2 hover:bg-secondary/80 transition-colors"
-          onClick={() => setMenuOpen((p) => !p)}
+          onClick={() => {
+            const newState = !menuOpen;
+            setMenuOpen(newState);
+            
+            posthog.capture('mobile_menu_toggle', {
+              action: newState ? 'open' : 'close',
+              projeto: 'portifolio',
+            });
+          }}
           aria-label="Toggle menu"
         >
           {menuOpen ? (

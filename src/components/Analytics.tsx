@@ -19,18 +19,37 @@ export default function Analytics() {
 
   // capture page load with some user info
   useEffect(() => {
+    const startTime = Date.now();
+    
     posthog.capture("page_loaded", {
       path: pathname,
       language: navigator.language,
       userAgent: navigator.userAgent,
       projeto: "portifolio",
     });
+    
     if (pathname.startsWith("/projects")) {
       posthog.capture("section_view", { 
         section: "projects",
         projeto: "portifolio",
       });
     }
+
+    // Track page time on unload
+    const handleBeforeUnload = () => {
+      const timeSpent = Math.round((Date.now() - startTime) / 1000);
+      posthog.capture("page_time", {
+        path: pathname,
+        time_spent_seconds: timeSpent,
+        projeto: "portifolio",
+      });
+    };
+
+    window.addEventListener('beforeunload', handleBeforeUnload);
+
+    return () => {
+      window.removeEventListener('beforeunload', handleBeforeUnload);
+    };
   }, [pathname]);
 
   // observe sections and important actions
@@ -117,6 +136,35 @@ export default function Analytics() {
       card.addEventListener("mouseenter", handleSkillHover, { once: true });
     });
 
+    // Track scroll depth
+    let maxScrollDepth = 0;
+    const milestones = [25, 50, 75, 90];
+    const trackedMilestones = new Set();
+    
+    const handleScroll = () => {
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      const windowHeight = window.innerHeight;
+      const documentHeight = document.documentElement.scrollHeight;
+      const scrollPercentage = Math.round((scrollTop + windowHeight) / documentHeight * 100);
+      
+      if (scrollPercentage > maxScrollDepth) {
+        maxScrollDepth = scrollPercentage;
+        
+        // Track milestone scroll depths
+        milestones.forEach(milestone => {
+          if (scrollPercentage >= milestone && !trackedMilestones.has(milestone)) {
+            trackedMilestones.add(milestone);
+            posthog.capture("scroll_depth", {
+              percentage: milestone,
+              projeto: "portifolio",
+            });
+          }
+        });
+      }
+    };
+    
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
     return () => {
       observers.forEach((o) => o.disconnect());
       projectsLink?.removeEventListener("click", handleProjects);
@@ -131,6 +179,7 @@ export default function Analytics() {
       skillCards.forEach(card => {
         card.removeEventListener("mouseenter", handleSkillHover);
       });
+      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 

@@ -2,6 +2,7 @@
 
 import { useTheme } from "next-themes"
 import { useEffect, useState } from "react"
+import posthog from "posthog-js"
 
 export function ThemeSwitch() {
   const [mounted, setMounted] = useState(false)
@@ -12,13 +13,25 @@ export function ThemeSwitch() {
     setMounted(true)
   }, [])
 
+  const handleThemeChange = () => {
+    const newTheme = theme === "dark" ? "light" : "dark"
+    
+    posthog.capture('theme_change', {
+      from_theme: theme,
+      to_theme: newTheme,
+      projeto: 'portifolio',
+    })
+    
+    setTheme(newTheme)
+  }
+
   if (!mounted) {
     return null
   }
 
   return (
     <button
-      onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+      onClick={handleThemeChange}
       className="rounded-lg p-2 hover:bg-secondary/80 transition-colors"
       aria-label="Toggle theme"
     >
