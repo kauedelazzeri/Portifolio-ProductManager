@@ -3,6 +3,7 @@ import { getProjectBySlug, getOtherProjects } from "@/lib/projects";
 import { getProjectContentBySlug } from "@/lib/project-content";
 import { cookies } from 'next/headers';
 import { MarkdownContent } from "@/components/markdown-content";
+import { ProjectViewTracker } from "@/components/ProjectViewTracker";
 import Image from "next/image";
 import Link from "next/link";
 import pt from '@/locales/pt.json';
@@ -48,6 +49,8 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
   return (
     <article className="animate-fade-in max-w-4xl mx-auto">
+      <ProjectViewTracker projectSlug={params.slug} projectTitle={project.title} />
+      
       <header className="mb-8">
         <h1 className="text-4xl font-bold tracking-tight mb-4">{project.title}</h1>
         <div className="flex flex-wrap gap-4 text-sm text-muted-foreground">
@@ -81,6 +84,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                 key={proj.slug}
                 href={`/projects/${proj.slug}`}
                 className="group block"
+                data-project-slug={proj.slug}
               >
                 <div className="relative overflow-hidden rounded-lg border bg-card p-6 transition-all hover:border-foreground/50 hover:shadow-lg">
                   <h3 className="font-semibold group-hover:text-primary transition-colors">

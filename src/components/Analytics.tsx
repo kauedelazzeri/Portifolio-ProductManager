@@ -23,9 +23,13 @@ export default function Analytics() {
       path: pathname,
       language: navigator.language,
       userAgent: navigator.userAgent,
+      projeto: "portifolio",
     });
     if (pathname.startsWith("/projects")) {
-      posthog.capture("section_view", { section: "projects" });
+      posthog.capture("section_view", { 
+        section: "projects",
+        projeto: "portifolio",
+      });
     }
   }, [pathname]);
 
@@ -40,7 +44,10 @@ export default function Analytics() {
       const obs = new IntersectionObserver((entries, observer) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            posthog.capture("section_view", { section: id });
+            posthog.capture("section_view", { 
+              section: id,
+              projeto: "portifolio",
+            });
             observer.disconnect();
           }
         });
@@ -50,22 +57,80 @@ export default function Analytics() {
     });
 
     const projectsLink = document.querySelector('a[href="/projects"]');
-    const handleProjects = () => posthog.capture("section_view", { section: "projects" });
+    const handleProjects = () => posthog.capture("section_view", { 
+      section: "projects",
+      projeto: "portifolio",
+    });
     projectsLink?.addEventListener("click", handleProjects);
 
     const emailLink = document.querySelector('a[href^="mailto:"]');
-    const handleEmail = () => posthog.capture("contact_email");
+    const handleEmail = () => posthog.capture("contact_email", {
+      projeto: "portifolio",
+    });
     emailLink?.addEventListener("click", handleEmail);
 
     const linkedinLink = document.querySelector('a[href*="linkedin.com"]');
-    const handleLinkedin = () => posthog.capture("contact_linkedin");
+    const handleLinkedin = () => posthog.capture("contact_linkedin", {
+      projeto: "portifolio",
+    });
     linkedinLink?.addEventListener("click", handleLinkedin);
+
+    // Track project card clicks
+    const projectCards = document.querySelectorAll('[data-project-slug]');
+    const handleProjectClick = (event: Event) => {
+      const target = event.currentTarget as HTMLElement;
+      const slug = target.getAttribute('data-project-slug');
+      posthog.capture("project_click", {
+        project_slug: slug,
+        projeto: "portifolio",
+      });
+    };
+    projectCards.forEach(card => {
+      card.addEventListener("click", handleProjectClick);
+    });
+
+    // Track CTA button clicks
+    const ctaButtons = document.querySelectorAll('[data-cta]');
+    const handleCtaClick = (event: Event) => {
+      const target = event.currentTarget as HTMLElement;
+      const ctaType = target.getAttribute('data-cta');
+      posthog.capture("cta_click", {
+        cta_type: ctaType,
+        projeto: "portifolio",
+      });
+    };
+    ctaButtons.forEach(button => {
+      button.addEventListener("click", handleCtaClick);
+    });
+
+    // Track skill card interactions
+    const skillCards = document.querySelectorAll('[data-skill]');
+    const handleSkillHover = (event: Event) => {
+      const target = event.currentTarget as HTMLElement;
+      const skillType = target.getAttribute('data-skill');
+      posthog.capture("skill_hover", {
+        skill_type: skillType,
+        projeto: "portifolio",
+      });
+    };
+    skillCards.forEach(card => {
+      card.addEventListener("mouseenter", handleSkillHover, { once: true });
+    });
 
     return () => {
       observers.forEach((o) => o.disconnect());
       projectsLink?.removeEventListener("click", handleProjects);
       emailLink?.removeEventListener("click", handleEmail);
       linkedinLink?.removeEventListener("click", handleLinkedin);
+      projectCards.forEach(card => {
+        card.removeEventListener("click", handleProjectClick);
+      });
+      ctaButtons.forEach(button => {
+        button.removeEventListener("click", handleCtaClick);
+      });
+      skillCards.forEach(card => {
+        card.removeEventListener("mouseenter", handleSkillHover);
+      });
     };
   }, []);
 

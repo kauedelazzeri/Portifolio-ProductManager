@@ -38,6 +38,7 @@ export function ProjectsGrid({ projects }: ProjectsGridProps) {
             key={project.slug}
             href={`/projects/${project.slug}`}
             className="group block h-full"
+            data-project-slug={project.slug}
           >
             <div className="relative overflow-hidden rounded-xl border bg-card transition-all duration-300 hover:border-foreground/50 hover:shadow-lg">
               <div className="aspect-[16/9] w-full overflow-hidden bg-muted">

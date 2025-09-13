@@ -42,12 +42,14 @@ export default function Home() {
             <Link
               href="/projects"
               className="inline-flex h-10 items-center justify-center rounded-md bg-primary px-8 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+              data-cta="view-projects"
             >
               {t('home.viewProjects')}
             </Link>
             <Link
               href="#contact"
               className="inline-flex h-10 items-center justify-center rounded-md border border-input bg-background px-8 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground"
+              data-cta="contact-me"
             >
               {t('home.contactMe')}
             </Link>
@@ -59,13 +61,21 @@ export default function Home() {
       <section>
         <div className="flex items-center justify-between">
         <h2 className="text-2xl font-semibold">{t('home.projects')}</h2>
-        <Link href="/projects" className="text-sm text-muted-foreground hover:text-foreground">
+        <Link 
+          href="/projects" 
+          className="text-sm text-muted-foreground hover:text-foreground"
+          data-cta="view-all-projects"
+        >
             {t('home.viewAllProjects')}
         </Link>
         </div>
         
         <div className="mt-8 grid gap-6 md:grid-cols-2">
-          <Link href="/projects/movie-genre-prediction" className="group relative overflow-hidden rounded-lg border p-6 transition-colors hover:border-foreground">
+          <Link 
+            href="/projects/movie-genre-prediction" 
+            className="group relative overflow-hidden rounded-lg border p-6 transition-colors hover:border-foreground"
+            data-project-slug="movie-genre-prediction"
+          >
             <div className="relative aspect-video w-full overflow-hidden rounded-md bg-muted mb-4">
               <Image 
                 src="/images/articles/movie-genre-prediction/icon.png" 
@@ -78,7 +88,11 @@ export default function Home() {
             <p className="mt-2 text-sm text-muted-foreground">{t('home.movieGenreDescription')}</p>
           </Link>
 
-          <Link href="/projects/wind-turbine-fault-prediction" className="group relative overflow-hidden rounded-lg border p-6 transition-colors hover:border-foreground">
+          <Link 
+            href="/projects/wind-turbine-fault-prediction" 
+            className="group relative overflow-hidden rounded-lg border p-6 transition-colors hover:border-foreground"
+            data-project-slug="wind-turbine-fault-prediction"
+          >
             <div className="relative aspect-video w-full overflow-hidden rounded-md bg-muted mb-4">
               <Image 
                 src="/images/articles/wind-turbine/icon.png" 
@@ -101,7 +115,7 @@ export default function Home() {
           <div className="space-y-6">
             <h3 className="text-xl font-medium">Hard Skills</h3>
             <div className="space-y-6">
-              <div className="rounded-lg border p-4">
+              <div className="rounded-lg border p-4" data-skill="data-analytics">
                 <h4 className="font-medium">{t('home.dataAnalytics')}</h4>
                 <ul className="mt-2 space-y-1 text-sm text-muted-foreground">
                   {Array.isArray(t('home.dataAnalyticsList')) && (t('home.dataAnalyticsList') as string[]).map((item) => (
@@ -109,7 +123,7 @@ export default function Home() {
                   ))}
                 </ul>
               </div>
-              <div className="rounded-lg border p-4">
+              <div className="rounded-lg border p-4" data-skill="infrastructure">
                 <h4 className="font-medium">{t('home.infrastructure')}</h4>
                 <ul className="mt-2 space-y-1 text-sm text-muted-foreground">
                   {Array.isArray(t('home.infrastructureList')) && (t('home.infrastructureList') as string[]).map((item) => (
@@ -117,7 +131,7 @@ export default function Home() {
                   ))}
                 </ul>
               </div>
-              <div className="rounded-lg border p-4">
+              <div className="rounded-lg border p-4" data-skill="ai-automation">
                 <h4 className="font-medium">{t('home.aiAutomation')}</h4>
                 <ul className="mt-2 space-y-1 text-sm text-muted-foreground">
                   {Array.isArray(t('home.aiAutomationList')) && (t('home.aiAutomationList') as string[]).map((item) => (
@@ -125,7 +139,7 @@ export default function Home() {
                   ))}
                 </ul>
               </div>
-              <div className="rounded-lg border p-4">
+              <div className="rounded-lg border p-4" data-skill="product-tools">
                 <h4 className="font-medium">{t('home.productTools')}</h4>
                 <ul className="mt-2 space-y-1 text-sm text-muted-foreground">
                   {Array.isArray(t('home.productToolsList')) && (t('home.productToolsList') as string[]).map((item) => (
@@ -139,7 +153,7 @@ export default function Home() {
           <div className="space-y-6">
             <h3 className="text-xl font-medium">Soft Skills</h3>
             <div className="space-y-6">
-              <div className="rounded-lg border p-4">
+              <div className="rounded-lg border p-4" data-skill="leadership">
                 <h4 className="font-medium">{t('home.leadership')}</h4>
                 <ul className="mt-2 space-y-1 text-sm text-muted-foreground">
                   {Array.isArray(t('home.leadershipList')) && (t('home.leadershipList') as string[]).map((item) => (
@@ -147,7 +161,7 @@ export default function Home() {
                   ))}
                 </ul>
               </div>
-              <div className="rounded-lg border p-4">
+              <div className="rounded-lg border p-4" data-skill="strategic-thinking">
                 <h4 className="font-medium">{t('home.strategicThinking')}</h4>
                 <ul className="mt-2 space-y-1 text-sm text-muted-foreground">
                   {Array.isArray(t('home.strategicThinkingList')) && (t('home.strategicThinkingList') as string[]).map((item) => (
@@ -155,7 +169,7 @@ export default function Home() {
                   ))}
                 </ul>
               </div>
-              <div className="rounded-lg border p-4">
+              <div className="rounded-lg border p-4" data-skill="agile-execution">
                 <h4 className="font-medium">{t('home.agileExecution')}</h4>
                 <ul className="mt-2 space-y-1 text-sm text-muted-foreground">
                   {Array.isArray(t('home.agileExecutionList')) && (t('home.agileExecutionList') as string[]).map((item) => (
@@ -195,6 +209,7 @@ export default function Home() {
             <a
               href="mailto:kauedelazzeri@gmail.com"
               className="inline-flex h-10 items-center justify-center rounded-md bg-primary px-8 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+              data-cta="contact-email"
             >
               kauedelazzeri@gmail.com
             </a>
@@ -203,6 +218,7 @@ export default function Home() {
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex h-10 items-center justify-center rounded-md border border-input px-8 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground"
+              data-cta="contact-linkedin"
             >
               {t('home.connectLinkedIn')}
             </a>
