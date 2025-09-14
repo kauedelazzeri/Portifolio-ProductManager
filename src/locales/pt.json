@@ -20,7 +20,7 @@
     "heroTitle": "Gerente de Produto Técnico",
     "heroSubtitle": "Projeto produtos orientados a dados para impacto, eficiência e escala.",
     "heroBullets": [
-      "4+ anos liderando produto em EV Charging e plataformas digitais",
+      "5+ anos liderando produto em EV Charging e plataformas digitais",
       "Pagamento (Stripe e outros gateways), Cloud (AWS, GCP e Oracle)",
       "Experimentação e métricas: PostHog, funil AARRR, testes A/B, KPIs de produto",
       "Forte colaboração técnica: APIs, arquitetura, trade-offs e discovery com engenharia/design"
@@ -88,7 +88,7 @@
     "viewAllArticles": "Ver todos os artigos",
     "windTurbineArticle": "Predição de Falhas em Aerogeradores com SVM, PCA e LDA - Análise técnico-negocial de um pipeline de IA aplicado ao setor eólico.",
     "comingSoon": "Em breve: instrumentação end‑to‑end com PostHog, estratégia de métricas em EV Charging, e playbooks de priorização com exemplos reais.",
-    "letsWork": "Vamos construir algo?",
+    "letsWork": "Quer construir algo?",
     "lookingFor": "Buscando desafios como TPM/PM sênior em produtos data‑driven, com alto impacto técnico e de negócio.",
     "connectLinkedIn": "Fale comigo no LinkedIn"
   },

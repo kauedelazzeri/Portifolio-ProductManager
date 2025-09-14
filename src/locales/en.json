@@ -20,7 +20,7 @@
     "heroTitle": "Technical Product Manager",
     "heroSubtitle": "I design data-driven products for impact, efficiency, and scale.",
     "heroBullets": [
-      "4+ years leading product in EV Charging and digital platforms",
+      "5+ years leading product in EV Charging and digital platforms",
       "Payments (Stripe and other gateways), Cloud (AWS, GCP, and Oracle)",
       "Experimentation and metrics: PostHog, AARRR funnel, A/B testing, product KPIs",
       "Strong technical collaboration: APIs, architecture, trade-offs, and discovery with engineering/design"
@@ -88,7 +88,7 @@
     "viewAllArticles": "View all articles",
     "windTurbineArticle": "Wind Turbine Fault Prediction with SVM, PCA and LDA - Technical-business analysis of an AI pipeline applied to the wind sector.",
     "comingSoon": "Coming soon: end-to-end instrumentation with PostHog, metrics strategy in EV Charging, and prioritization playbooks with real examples.",
-    "letsWork": "Let's build something?",
+    "letsWork": "Want to build something?",
     "lookingFor": "Seeking challenges as Senior TPM/PM in data-driven products, with high technical and business impact.",
     "connectLinkedIn": "Contact me on LinkedIn"
   },
