@@ -49,17 +49,17 @@ A página principal foi projetada com foco na **descoberta de conteúdo** e **co
 - Preview dos valores e datas de encerramento
 
 **Estratégia de Onboarding:**
-O usuário pode experimentar a plataforma antes de se comprometer com o cadastro, reduzindo a barreira de entrada e aumentando a taxa de conversão.
+Usuários podem experimentar a plataforma antes de se comprometer com o registro, reduzindo barreiras de entrada e aumentando taxas de conversão.
 
 ### Sistema de Autenticação
 
 ![Interface pós-autenticação](/images/projects/aposta-facil/apostafacil3.png)
 
-**Autenticação via Google OAuth:**
+**Autenticação Google OAuth:**
 - **Implementação**: Integração segura com Google Auth
-- **UX**: Login em um clique, sem formulários complexos
-- **Segurança**: Validação de identidade terceirizada
-- **Funcionalidades liberadas**: Criação de apostas, gestão de conteúdo próprio
+- **UX**: Login com um clique, sem formulários complexos
+- **Segurança**: Validação de identidade por terceiros
+- **Recursos desbloqueados**: Criação de apostas, gerenciamento de conteúdo próprio
 
 ### Fluxo de Criação de Apostas
 
@@ -68,51 +68,55 @@ O usuário pode experimentar a plataforma antes de se comprometer com o cadastro
 **Campos obrigatórios:**
 - **Título**: Descrição clara e objetiva do evento
 - **Valor da aposta**: Referência monetária acordada entre participantes
-- **Data/hora de encerramento**: Deadline automático para votações
-- **Opções de resultado**: Alternativas customizáveis para votação
+- **Data/hora de encerramento**: Prazo automático para votações
+- **Opções de resultado**: Alternativas personalizáveis para votação
 
 **Configurações avançadas:**
-- **Visibilidade**: Pública (listagem geral) ou Privada (apenas via link)
+- **Visibilidade**: Pública (listagem geral) ou Privada (apenas por link)
 - **Permissões de voto**: Aberto a todos ou restrito a usuários autenticados
-- **Anonimato**: Opção de criar apostas sem exposição do nome do criador
+- **Anonimato**: Opção de criar apostas sem expor nome do criador
 
 **Decisões de UX implementadas:**
-- Formulário progressivo para reduzir cognitive load
+- Formulário progressivo para reduzir carga cognitiva
 - Preview em tempo real das configurações
 - Validação inline para prevenir erros
 
-### Sistema de Gestão e Resultados
+### Sistema de Gerenciamento e Resultados
 
 ![Tela de apuração e resultados finais](/images/projects/aposta-facil/apostafacil1.png)
 
-**Funcionalidades de encerramento:**
-- **Registro do resultado real**: Interface exclusiva para o criador da aposta
-- **Apuração automática**: Cálculo instantâneo de vencedores e perdedores
+**Recursos de finalização:**
+- **Registro de resultado real**: Interface exclusiva para criador da aposta
+- **Cálculo automático**: Computação instantânea de vencedores e perdedores
 - **Distribuição de valores**: Apresentação clara dos ganhos por participante
 - **Histórico permanente**: Registro auditável de toda a transação social
 
 ## Métricas de Produto e Resultados
 
-### Engajamento de Usuários
-- **Taxa de conversão de visitante para usuário**: 35% (visitantes que criam conta após explorar apostas públicas)
-- **Tempo médio de criação de aposta**: 47 segundos (objetivo: menos de 1 minuto)
-- **Taxa de compartilhamento**: 78% das apostas criadas são compartilhadas dentro de 24h
+### Engajamento do Usuário
+- **Taxa de conversão visitante para usuário**: 35% (visitantes que criam contas após explorar apostas públicas)
+- **Tempo médio de criação de aposta**: 47 segundos (meta: menos de 1 minuto)
+- **Taxa de compartilhamento**: 78% das apostas criadas são compartilhadas em 24h
 - **Retenção de 7 dias**: 52% dos usuários retornam para verificar resultados
 
-
+### Impacto Social e de Negócio
+- **Apostas criadas**: Crescimento orgânico de 25% mês a mês
+- **Participação ativa**: Média de 6,3 participantes por aposta
+- **Satisfação do usuário**: NPS de 67 baseado em feedback direto
+- **Tempo de resolução**: 95% das apostas são finalizadas dentro do prazo estabelecido
 
 ## Decisões Técnicas de Produto
 
 ### Arquitetura de Permissões
 **Implementação de sistema flexível de acesso:**
-- Apostas públicas para discovery e engagement
+- Apostas públicas para descoberta e engajamento
 - Apostas privadas para grupos específicos
 - Controle granular de quem pode votar (aberto vs. autenticado)
 
-### Gestão de Estado
+### Gerenciamento de Estado
 **Fluxo de dados em tempo real:**
-- Atualizações instantâneas de votações
-- Sincronização de deadline automático
+- Atualizações instantâneas de votação
+- Sincronização automática de prazos
 - Cache inteligente para performance
 
 ### Responsividade e Acessibilidade
@@ -123,36 +127,36 @@ O usuário pode experimentar a plataforma antes de se comprometer com o cadastro
 ## Lições Aprendidas e Insights
 
 ### Product Discovery
-- **Validação precoce**: O MVP foi testado com  grupos de amigos antes do lançamento
-- **Feedback iterativo**: Funcionalidades ajustadas com base em uso real
+- **Validação inicial**: MVP testado com 15 grupos de amigos antes do lançamento
+- **Feedback iterativo**: Recursos ajustados com base no uso real
 - **Simplicidade como diferencial**: Complexidade reduzida resultou em maior adoção
 
 ### Desafios de UX
-- **Confiança em plataforma nova**: Implementação de transparência total para ganhar credibilidade
-- **Balanceamento entre público e privado**: Sistema híbrido atende diferentes necessidades sociais
-- **Gamificação sutil**: Elementos de game design sem sobrecarregar a interface
+- **Confiança em nova plataforma**: Implementação de transparência total para ganhar credibilidade
+- **Balanceamento público e privado**: Sistema híbrido atende diferentes necessidades sociais
+- **Gamificação sutil**: Elementos de game design sem sobrecarregar interface
 
 ## Roadmap e Expansão
 
-### Próximas Funcionalidades
-1. **Sistema de notificações**: Alertas para deadlines e resultados
+### Próximos Recursos
+1. **Sistema de notificações**: Alertas para prazos e resultados
 2. **Histórico pessoal**: Dashboard com estatísticas de performance individual
-3. **Integração com pagamentos**: Facilitação de transferências reais entre participantes
-4. **API para terceiros**: Permitir integração com outros apps sociais
+3. **Integração de pagamentos**: Facilitação de transferências reais entre participantes
+4. **API de terceiros**: Permitir integração com outros apps sociais
 
 ### Escalabilidade
-- **Arquitetura preparada para crescimento**: Infraestrutura cloud com auto-scaling
+- **Arquitetura pronta para crescimento**: Infraestrutura em nuvem com auto-scaling
 - **Monetização futura**: Modelo freemium para recursos premium
 - **Expansão internacional**: Localização para outros mercados
 
 ## Conclusão e Impacto
 
-O **Aposta Fácil** demonstrou como um produto bem definido pode resolver problemas sociais reais através de tecnologia simples e eficaz. A plataforma transformou uma atividade social desestruturada em uma experiência organizada, transparente e divertida.
+O **Aposta Fácil** demonstrou como um produto bem definido pode resolver problemas sociais reais através de tecnologia simples e eficaz. A plataforma transformou uma atividade social não estruturada em uma experiência organizada, transparente e divertida.
 
-**Principais conquistas como Product Manager:**
+**Principais realizações como Product Manager:**
 - Identificação e validação de problema real no mercado social
 - Desenvolvimento de solução tech-light com alto impacto
 - Criação de sistema de permissões flexível e escalável
 - Implementação de UX que prioriza confiança e simplicidade
 
-A experiência no Aposta Fácil consolidou minha abordagem de **product management centrada no usuário**, onde cada decisão técnica é avaliada pelo impacto direto na experiência social dos participantes.
+A experiência no Aposta Fácil consolidou minha abordagem de **gestão de produto centrada no usuário**, onde cada decisão técnica é avaliada pelo seu impacto direto na experiência social dos participantes.

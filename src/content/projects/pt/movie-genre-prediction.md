@@ -1,89 +1,114 @@
 ---
-title: "Predição de Gêneros de Filmes"
-subtitle: "Deep Learning para Reconhecimento de Padrões Visuais em Pôsteres"
-date: "2024"
+title: "Predição de Gêneros de Filmes Baseada em Pôsteres"
+subtitle: "Análise de classificação de gêneros cinematográficos usando redes neurais convolucionais e transfer learning"
+date: "2024-03-21"
 author: "Kaue Delazzeri"
-tags: ["Deep Learning", "Computer Vision", "CNN", "Transfer Learning", "Classification"]
-locale: "pt"
-translations:
-  en:
-    title: "Movie Genre Prediction"
-    subtitle: "Deep Learning for Visual Pattern Recognition in Movie Posters"
+tags: ["Machine Learning", "Computer Vision", "CNN", "Transfer Learning", "Deep Learning"]
+coverImage: "VGG_accuracy.png"
 ---
 
-# Predição de Gêneros de Filmes Baseada em Pôsteres
+# Predição de Gêneros de Filmes Baseada em Pôsteres  
+*Análise de classificação de gêneros cinematográficos usando redes neurais convolucionais e transfer learning*  
 
-## Visão Geral do Projeto
+---
 
-A classificação automática de gêneros de filmes tem aplicações importantes em plataformas de streaming, sistemas de recomendação de conteúdo e análise de mercado. Este projeto desenvolveu uma solução de deep learning que analisa padrões visuais em pôsteres de filmes para classificar gêneros com 85% de precisão.
+## Resumo
 
-## Arquitetura Técnica
+> *Este artigo apresenta um método para classificação de gêneros cinematográficos usando apenas pôsteres de filmes como entrada. A abordagem combina técnicas de processamento de imagens com redes neurais convolucionais (CNN) e transfer learning para extrair características visuais relevantes e realizar classificação multiclasse. O modelo foi treinado em um dataset de mais de 45.000 pôsteres de filmes, alcançando mais de 85% de precisão na classificação dos principais gêneros. A análise das camadas convolucionais revela padrões visuais específicos associados a cada gênero, fornecendo insights sobre a linguagem visual do cinema.*  
 
-### Coleta de Dados
-- **Tamanho do Dataset**: Mais de 45.000 pôsteres coletados via API do TMDB
-- **Aumento de Dados**: Aplicação de rotação, escala e transformações de cor
-- **Balanceamento de Classes**: Garantia de amostras representativas em todos os gêneros
+---
 
-### Desenvolvimento do Modelo
-- **Arquitetura Dupla**: CNN customizada e VGG16 com transfer learning
-- **Transfer Learning**: Fine-tuning do VGG16 pré-treinado para classificação multiclasse
-- **Otimização**: Função de perda customizada para cenários multiclasse
+## 1. Visão de Negócio
 
-### Infraestrutura
-- **Framework**: PyTorch para desenvolvimento do modelo
-- **Desenvolvimento de API**: API REST para classificação em tempo real
-- **Deploy**: Solução containerizada para escalabilidade
+A classificação automática de gêneros cinematográficos tem aplicações importantes em streaming, recomendação de conteúdo e análise de mercado. Ao usar apenas pôsteres — recursos já disponíveis e padronizados — o método reduz custos de implementação e fornece insights valiosos sobre a comunicação visual do cinema.
 
-## Resultados e Performance
+---
 
-### Métricas do Modelo
-- **Precisão Global**: 85% entre os principais gêneros
-- **Velocidade de Inferência**: Menos de 100ms por imagem
-- **Escalabilidade**: Processa requisições concorrentes eficientemente
+## 2. Dados e Pré-processamento
 
-### Descoberta de Padrões Visuais
-- **Elementos Específicos por Gênero**: Identificação de paletas de cores, padrões de composição e estilos tipográficos
-- **Importância das Features**: Análise de quais elementos visuais contribuem mais para a classificação
-- **Interpretabilidade**: Geração de heatmaps mostrando áreas de atenção do modelo
+O dataset foi construído a partir de múltiplas fontes:
 
-## Implementação Técnica
+> "Utilizamos a API do TMDB para coletar pôsteres e metadados, combinando com informações do IMDb para validação cruzada dos gêneros." ([GitHub][1])
 
-```python
-# Implementação de transfer learning
-class MovieGenreClassifier(nn.Module):
-    def __init__(self, num_classes=10):
-        super().__init__()
-        self.backbone = torchvision.models.vgg16(pretrained=True)
-        self.backbone.classifier = nn.Sequential(
-            nn.Linear(25088, 4096),
-            nn.ReLU(),
-            nn.Dropout(0.5),
-            nn.Linear(4096, num_classes)
-        )
-    
-    def forward(self, x):
-        return self.backbone(x)
-```
+A distribuição de filmes por ano pode ser vista abaixo:
 
-## Aplicações de Negócio
+![Distribuição de filmes por ano](/images/articles/movie-genre-prediction/movies_by_year.png)
 
-### Plataformas de Streaming
-- **Auto-tagging**: Categorização automática de novo conteúdo
-- **Sistemas de Recomendação**: Melhoria na descoberta de conteúdo
-- **Enriquecimento de Metadados**: Aprimoramento da funcionalidade de busca
+A distribuição inicial de gêneros mostrava desbalanceamento significativo:
 
-### Análise de Mercado
-- **Análise de Tendências**: Identificação de tendências visuais no marketing cinematográfico
-- **Evolução de Gêneros**: Acompanhamento de mudanças na apresentação visual ao longo do tempo
-- **Inteligência Competitiva**: Análise da eficácia dos pôsteres
+![Distribuição inicial de gêneros](/images/articles/movie-genre-prediction/total_movies_per_genre.png)
 
-## Desenvolvimento Futuro
+Após pré-processamento e balanceamento, alcançamos uma distribuição mais uniforme:
 
-1. **Classificação Multi-label**: Lidar com filmes de múltiplos gêneros
-2. **Análise Temporal**: Acompanhar tendências visuais ao longo das décadas
-3. **Estudos Interculturais**: Analisar variações regionais dos pôsteres
-4. **Integração**: Conectar com algoritmos de recomendação
+![Distribuição final de gêneros](/images/articles/movie-genre-prediction/final_movies_per_genre.png)
 
-## Insights de Pesquisa
+---
 
-Este projeto revelou que pôsteres de filmes contêm informações visuais ricas que se correlacionam fortemente com a classificação de gêneros, abrindo possibilidades para análise automatizada de conteúdo na indústria do entretenimento.
+## 3. Metodologia
+
+Testamos duas arquiteturas diferentes:
+
+### 3.1 Rede Neural Customizada
+
+Uma arquitetura CNN customizada foi projetada especificamente para esta tarefa:
+
+![Arquitetura da rede neural customizada](/images/articles/movie-genre-prediction/rede_custom.png)
+
+A curva de aprendizado mostra boa convergência:
+
+![Curva de aprendizado da rede customizada](/images/articles/movie-genre-prediction/custom_accuracy.png)
+
+A matriz de confusão revela a performance do modelo:
+
+![Matriz de confusão da rede customizada](/images/articles/movie-genre-prediction/custom_arc_confusion_matrix.png)
+
+### 3.2 VGG16 com Transfer Learning
+
+Também implementamos um modelo baseado em VGG16 com transfer learning:
+
+![Matriz de confusão do VGG16](/images/articles/movie-genre-prediction/vgg_conf_matrix.png)
+
+---
+
+## 4. Competências Aplicadas
+
+- **Computer Vision**: Processamento de imagens e extração de características
+- **Deep Learning**: Design e treinamento de arquiteturas CNN
+- **Transfer Learning**: Fine-tuning de modelos pré-treinados
+- **Engenharia de Dados**: Construção e pré-processamento do dataset
+- **MLOps**: Deploy de modelos e desenvolvimento de API
+
+---
+
+## 5. Resultados
+
+- **Precisão**: 85% na classificação dos principais gêneros
+- **Tempo de Inferência**: Menos de 100ms por imagem
+- **Padrões Visuais**: Identificação de elementos visuais específicos por gênero
+- **API**: Endpoint REST para classificação em tempo real
+
+---
+
+## 6. Impacto e Próximos Passos
+
+O modelo pode ser integrado em plataformas de streaming e sistemas de gestão de conteúdo para:
+- Automatizar a marcação de gêneros
+- Melhorar recomendações de conteúdo
+- Analisar tendências visuais no cinema
+- Suportar decisões de marketing
+
+Trabalhos futuros incluem:
+- Expansão para subgêneros
+- Incorporação de análise temporal
+- Desenvolvimento de interface web
+- Adição de recursos de explicabilidade
+
+---
+
+## 7. Conclusão
+
+O método proposto demonstra que pôsteres de filmes contêm informação visual suficiente para classificação de gêneros. A combinação de abordagens CNN customizadas e transfer learning fornece uma solução robusta que pode ser facilmente integrada em sistemas existentes. A análise de padrões visuais também oferece insights valiosos para a indústria cinematográfica.
+
+---
+
+[1]: https://github.com/kauedelazzeri/movie-genre-prediction
