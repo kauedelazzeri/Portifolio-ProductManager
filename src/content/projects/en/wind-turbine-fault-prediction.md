@@ -1,75 +1,120 @@
 ---
-title: "Wind Turbine Fault Prediction"
-subtitle: "AI Pipeline for Early Fault Detection using SVM, PCA and LDA"
-date: "2024"
+title: "Wind Turbine Fault Prediction with SVM, PCA and LDA"
+subtitle: "Technical-business analysis of an AI pipeline for the wind sector"
+date: "2024-03-20"
 author: "Kaue Delazzeri"
-tags: ["Machine Learning", "SVM", "PCA", "Wind Energy", "Fault Detection"]
-locale: "en"
-translations:
-  pt:
-    title: "Predição de Falhas em Turbinas Eólicas"
-    subtitle: "Pipeline de IA para Detecção Precoce usando SVM, PCA e LDA"
+tags: ["Machine Learning", "SVM", "PCA", "LDA", "Wind Energy", "Predictive Maintenance"]
+coverImage: "simulacao_aerogerador.png"
 ---
 
-# Wind Turbine Fault Prediction with SVM, PCA and LDA
+# Wind Turbine Fault Prediction with SVM, PCA and LDA  
+*Technical-business analysis of an AI pipeline for the wind sector*  
 
-## Project Overview
+---
 
-Unplanned wind turbine downtime can reach 237 hours per year, directly affecting revenue and increasing maintenance costs. This project developed a non-invasive method for early fault detection using only generator current signatures, achieving 97.6% accuracy.
+## Abstract
 
-## Technical Approach
+> *This article proposes a method based on generator electrical signals to detect defects caused by mass imbalance or blade pitch faults. The approach combines Support Vector Machines, Principal Component Analysis, and Linear Discriminant Analysis for early detection, which is essential to reduce downtime and avoid unnecessary maintenance. A framework composed of TurbSim, FAST, and MATLAB/Simulink simulated electrical signals from a 1.5 MW turbine under different wind scenarios and blade imbalances. In identifying failure conditions, 97.61% accuracy was achieved using only generator signals. The method was compared with eight classifiers and showed superior performance.*  
 
-### Data Generation
-- **Synthetic Database**: Used TurbSim for wind simulation, FAST for GE 1.5s turbine modeling, and MATLAB/Simulink for PMSG generator simulation
-- **Non-invasive Monitoring**: Only generator electrical signals were used, eliminating need for additional sensors
+---
 
-### Preprocessing Pipeline
-- **PCA Implementation**: Achieved 99.99% variance retention while reducing dimensionality
-- **LDA Integration**: Further reduced to 6 components for optimal classification
-- **Data Reduction**: 98% reduction in dataset size while maintaining information content
+## 1. Business Perspective
 
-### Machine Learning Model
-- **Algorithm**: Support Vector Machine with RBF kernel
-- **Optimization**: Grid-Search with 10-fold cross-validation
-- **Benchmarking**: Compared against k-NN, QDA, Decision Trees, Random Forest, AdaBoost, ANN, and linear SVM
+Unplanned wind turbine downtime can reach **237 h/year**, directly affecting revenue and increasing maintenance costs. By analyzing only generator current signatures — a **non-invasive** and low-CAPEX strategy — the method achieves **97.6%** accuracy in early detection, enabling predictive maintenance and increasing capacity factor.
 
-## Results and Impact
+---
 
-### Performance Metrics
-- **Global Accuracy**: 97.6%
-- **F1 Score**: ≥ 0.92 across all fault classes
-- **Processing Speed**: Hyperparameter search reduced to ~2 minutes
-- **Comparative Performance**: Superior to all benchmark algorithms
+## 2. Data Generation and Simulation
 
-### Business Value
-- **CAPEX Reduction**: No additional sensors required
-- **OPEX Optimization**: Early detection reduces maintenance costs
-- **Revenue Protection**: Minimizes unplanned downtime
-- **Scalability**: Method applicable to different turbine models
+As real SCADA data were unavailable, a synthetic dataset was created:
 
-## Technical Implementation
+> "TurbSim generated turbulent wind fields, FAST simulated the **GE 1.5s** turbine, and a MATLAB/Simulink PMSG model recorded three-phase currents for SVM training." ([GitHub][1])
 
-```python
-# Example of the preprocessing pipeline
-def preprocess_data(signals):
-    # Apply PCA for dimensionality reduction
-    pca = PCA(n_components=0.9999)
-    pca_features = pca.fit_transform(signals)
-    
-    # Apply LDA for class separation
-    lda = LDA(n_components=6)
-    final_features = lda.fit_transform(pca_features, labels)
-    
-    return final_features
-```
+The figure below illustrates the data generation process:
 
-## Future Enhancements
+![Synthetic data generation process](/images/articles/wind-turbine/geracao_de_dadosb.png)
 
-1. **Real-time Implementation**: Deploy model for continuous monitoring
-2. **Multi-turbine Networks**: Extend to wind farm-level predictions
-3. **Additional Fault Types**: Include gearbox and blade fault detection
-4. **Edge Computing**: Implement on-site processing for reduced latency
+| **Parameter**           | **Value**                           |
+|-------------------------|-------------------------------------|
+| Rated power            | 1.5 MW                              |
+| Generator              | Permanent-magnet synchronous (PMSG) |
+| Hub height             | 84 m                                |
+| Rotor diameter         | 70 m                                |
+| Configuration          | 3-blade, upwind                     |
+| Rated speed            | 20 RPM                              |
+| Rated torque           | 736.79 kN·m                         |
 
-## Research Impact
+### Operating Conditions – Database Scope
 
-This work demonstrates that electrical signature analysis can effectively replace traditional vibration-based monitoring systems, providing a cost-effective solution for the wind energy industry while maintaining high accuracy standards.
+| **Feature**                | **Range**                                       |
+|----------------------------|-------------------------------------------------|
+| Mean wind speed            | 15.0 – 24.0 m/s                                 |
+| Turbulence intensity       | 5% – 30%                                        |
+| Imbalance conditions       | Balanced; mass −3%, +2%, +5%; aerodynamic 2°, 3°, 4° |
+| Simulations per pair (wind × TI) | 12                                          |
+| Simulation time            | 120 s (last 60 s stored)                        |
+| Sampling frequency         | 2 kHz                                           |
+| Operating region           | 3                                               |
+
+The final dataset comprises **7 classes** × **5 wind speeds** × **5 turbulence levels** × **12 runs** → **2,100 recordings**, each with 60 s × 2 kHz × 3 phases = **360k samples**.
+
+---
+
+## 3. Methodology
+
+The fault detection pipeline follows the flow below:
+
+![Fault detection methodology flow](/images/articles/wind-turbine/fluxo.jpg)
+
+1. **Pre-processing**  
+   * z-score normalization → **PCA** (99.99% variance) → **LDA** (6 dimensions).  
+2. **Model**  
+   * **SVM** with RBF kernel, tuned via grid search (10-fold CV, 168 combinations).  
+3. **Benchmarks**  
+   * k-NN, QDA, Decision Trees, Random Forest, AdaBoost, ANN, linear SVM.  
+4. **Metrics**  
+   * Accuracy, Precision, Recall, F1, confusion matrix.
+
+The PCA/LDA visualization below shows class separability:
+
+![PCA/LDA class visualization](/images/articles/wind-turbine/PCAeLDA2.jpeg)
+
+---
+
+## 4. Applied Skills
+
+Throughout the end-to-end study — from data generation to model validation — the following capabilities were exercised:
+
+* **Dimensionality reduction & statistics**: PCA, LDA, variance analysis.  
+* **Advanced machine learning**: SVM and margin theory.  
+* **Data engineering & MLOps**: Python-Simulink-FAST automation, grid search, cross-validation.  
+* **High-performance computing**: Parallel PCA on matrices > 120k × 2k.  
+* **Wind turbine domain knowledge**: Physical modeling, pitch and rotor faults.
+
+---
+
+## 5. Results
+
+The confusion matrix below shows model performance:
+
+![Model confusion matrix](/images/articles/wind-turbine/cunfiusion_matrix.png)
+
+* **Global accuracy:** **97.6%**; class-wise F1 ≥ 0.92.  
+* **Efficiency:** PCA + LDA reduce the dataset by **98%**, cutting hyperparameter search to ≈ 2 min.
+
+---
+
+## 6. Impact & Next Steps
+
+* **Stakeholders:** operators (↓ OPEX), investors (↑ capacity factor), OEMs (new SaaS revenue).  
+* **Roadmap:** extend fault types (gearbox, yaw), add explainability (SHAP), deploy on ARM edge devices in the nacelle.
+
+---
+
+## 7. Conclusion
+
+The project demonstrates, in a tangible way, how modern AI techniques can increase the reliability of renewable assets, combining physical simulation, machine learning, and robust software engineering.
+
+---
+
+[1]: https://github.com/kauedelazzeri/Wind-Turbine-Fault-Prediction "Wind-Turbine-Fault-Prediction – GitHub"
